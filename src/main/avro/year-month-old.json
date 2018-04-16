@@ -1,0 +1,9 @@
+[ {
+  "name" : "year",
+  "source" : "As_of_Date",
+  "type" : "year"
+}, {
+  "name" : "month",
+  "source" : "As_of_Date",
+  "type" : "month"
+} ]
