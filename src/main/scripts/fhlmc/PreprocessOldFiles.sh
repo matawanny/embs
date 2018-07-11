@@ -6,6 +6,14 @@ then
       echo "Must input source file name!"
       exit;
 fi
+
+currentUser=$(whoami)
+if [ "$currentUser" != "root" ]
+then
+    echo "Must login in as root"
+    exit;
+fi	
+
 FILESIZE=$(stat -c%s "$SOURCE_FILENAME")
 filename=$1
 
@@ -33,7 +41,7 @@ fi
 AS_OF_DATE=$(date -d "$asOfDate" +%s)
 echo $AS_OF_DATE
 
-libfile=/root/.m2/repository/com/yieldbook/embs/0.0.1-SNAPSHOT/embs-0.0.1-SNAPSHOT.jar
+libfile=/usr/book/repository/com/yieldbook/embs/0.0.1-SNAPSHOT/embs-0.0.1-SNAPSHOT-shaded.jar
 FILELINES=$(wc -l $filename | awk  '{print $1;}')
 dos2unix $filename
 
@@ -55,7 +63,7 @@ then
         rm -rf $newFileNameMod
 fi
 
-java -Xms1024m -Xmx2048m -jar $libfile -t fhlmc -i $filename
+java -Xms1024m -Xmx2048m -jar $libfile -t fhlmcold -i $filename
 let COUNT_LOAN=0
 let COUNT_MODIFIED_LOAN=0
 

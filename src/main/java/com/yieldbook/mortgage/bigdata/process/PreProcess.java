@@ -10,6 +10,7 @@ import org.apache.commons.cli.ParseException;
 
 import com.yieldbook.mortgage.bigdata.action.BaseFileParser;
 import com.yieldbook.mortgage.bigdata.action.FHLMCFileParser;
+import com.yieldbook.mortgage.bigdata.action.FHLMCOLDFileParser;
 import com.yieldbook.mortgage.bigdata.action.FNMAFileParser;
 
 public class PreProcess {
@@ -35,7 +36,7 @@ public class PreProcess {
 		  input.setArgName("FILE INPUT PATH");
 		  options.addOption(input);
 		  
-		  Option filetype = new Option("t", "filetype", true, "input file type, should be fhlmc or fnma or gnma ");
+		  Option filetype = new Option("t", "filetype", true, "input file type, should be fhlmc or fhlmcold or fnma or gnma or fhlmcdaily or fnmadaily ");
 		  filetype.setRequired(true);
 		  filetype.setArgName("FILE TYPE");
 		  options.addOption(filetype);
@@ -78,7 +79,11 @@ public class PreProcess {
 		  PreProcess preProcess=null;
 		  switch(fileTypeStr){
 		  case "fhlmc":
-			  preProcess = new PreProcess(new FHLMCFileParser(inputFileStr));
+			  preProcess = new PreProcess(new FHLMCFileParser(inputFileStr, outputFileStr));
+			  preProcess.parseAndWriteFile();
+			  break;
+		  case "fhlmcold":
+			  preProcess = new PreProcess(new FHLMCOLDFileParser(inputFileStr));
 			  preProcess.parseAndWriteFile();
 			  break;
 		  case "fnma":

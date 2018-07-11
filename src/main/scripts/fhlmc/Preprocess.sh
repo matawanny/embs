@@ -1,4 +1,5 @@
 #!/bin/bash
+
 START=$(date +%s)
 SOURCE_FILENAME=$1
 if [ -z "$SOURCE_FILENAME" ]
@@ -7,10 +8,16 @@ then
       exit;
 fi
 
+currentUser=$(whoami)
+if [ "$currentUser" != "oozie" ]
+then
+    echo "Must login in as oozie"
+    exit;
+fi	
+
 FILESIZE=$(stat -c%s "$SOURCE_FILENAME")
 filename=$1
 
-#ext=$(echo $filename|cut -f 2 -d '.')
 ext=${filename##*.}
 if [ "$ext" == "ZIP" ]
 then
@@ -48,15 +55,23 @@ then
 	asOfDate=$day
 	asOfDate+=" "
 	asOfDate+=$time
+	asOfDate+=":00"
+	
+	asOfDate1=$day
+	asOfDate1+=$time
+	asOfDate1+=":00"
 	echo "\t$day\t$time\t\t$asOfDate"
 else
 	asOfDate=$(($name+5))
+	asOfDate1=$(($name+5))
 	day=$asOfDate
 	if [ "$prefix" == "FHLMONLA" ]
 	then
-        	asOfDate+=" 17:04"
+        	asOfDate+=" 17:04:00"
+        	asOfDate1+="17:04:00"
 	else
-        	asOfDate+=" 17:12"
+        	asOfDate+=" 17:12:00"
+        	asOfDate1+="17:12:00"
 	fi
 	echo "$prefix\t\t$asOfDate"
 fi
@@ -80,15 +95,21 @@ then
 	echo 'rm -rf $newFileName'
 	rm -rf $newFileName
 fi
-#awk  -F"|" '{print $0FS var}'var="$timeSec" $filename >> $newFileName 
-sed  "s/$/\|$timeSec/g" $filename >>$newFileName
 
-kite-dataset csv-import $newFileName dataset:hive:prd/fhlmonly --delimiter '|' --no-header
+libfile=/usr/book/repository/com/yieldbook/embs/0.0.1-SNAPSHOT/embs-0.0.1-SNAPSHOT-shaded.jar
+sed -i 's/ *| */|/g' $filename
+
+java -Xms1024m -Xmx2048m -jar $libfile -t fhlmc -i $filename -o $newFileName -d $asOfDate1
+
+#awk  -F"|" '{print $0FS var}'var="$timeSec" $filename >> $newFileName 
+#sed  "s/$/\|$timeSec/g" $filename >>$newFileName
+
+kite-dataset csv-import $newFileName dataset:hive://ybrdev79:9083/prd/fhlmonly --delimiter '|' --no-header
 year=${day:0:4}
 month=${day:4:2}
 #impala-shell -B -i ybgdev93.ny.ssmb.com -q "invalidate metadata;use prd;select count(*) from fhlmonly where year=$year and month=$month" > /tmp/count.tsv
 
-COUNT=$(impala-shell -B -i ybgdev93.ny.ssmb.com -q "invalidate metadata;use prd;select count(*) from fhlmonly where as_of_date=$timeSec")
+COUNT=$(impala-shell -B -i ybgdev93.ny.ssmb.com -q "invalidate metadata;select count(*) from prd.fhlmonly where as_of_date=$timeSec")
 if [ -z "$COUNT" ]
 then COUNT=NULL
 fi
@@ -97,4 +118,6 @@ END=$(date +%s)
 DIFF=$(echo "$END - $START" | bc)
 echo "SOURCE_FILENAME=$SOURCE_FILENAME	FILESIZE=$FILESIZE	FILELINES=$FILELINES	START=$START	DIFF=$DIFF	AS_OF_DATE=$AS_OF_DATE"
 echo "YEAR=$year	MONTH=$month	COUNT=$COUNT"
-impala-shell -B -i ybgdev93.ny.ssmb.com -q "invalidate metadata; use prd; insert into monitors values ('$SOURCE_FILENAME',$FILESIZE,$FILELINES,$AS_OF_DATE,$year,$month,$START,$DIFF,$COUNT,'SUCCESS')"
+impala-shell -B -i ybgdev79.ny.ssmb.com -q "invalidate metadata;insert into prd.monitors values ('$SOURCE_FILENAME',$FILESIZE,$FILELINES,$AS_OF_DATE,$year,$month,$START,$DIFF,$COUNT,'SUCCESS')"
+
+#rm -rf *.TXT *_TS.dat

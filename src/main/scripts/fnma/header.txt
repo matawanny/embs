@@ -15,8 +15,65 @@ kite-dataset csv-schema FNMMONLL.TXT --record-name fnma_month_loan --delimiter '
 
 
 
-kite-dataset create dataset:hive://ybgdev93:9083/prd/fnmamonly --schema fnma_monthly.avsc --partition-by year-month-fnmamonly.json --format parquet
+kite-dataset create dataset:hive://ybrdev79:9083/prd/fnmamonly --schema fnma_monthly.avsc --partition-by year-month-fnmamonly.json --format parquet
 
-kite-dataset info dataset:hive://ybgdev93:9083/prd/fnmamonly
+kite-dataset info dataset:hive://ybrdev79:9083/prd/fnmamonly
 
-kite-dataset csv-import FNMMONLL.TXT dataset:hive://ybgdev93:9083/prd/fnmamonly --delimiter '|' --no-header
+kite-dataset csv-import FNMMONLL.TXT dataset:hive://ybrdev79:9083/prd/fnmamonly --delimiter '|' --no-header
+
+kite-dataset delete dataset:hive://ybrdev79:9083/prd/fnmamonly
+
+unset SSH_ASKPASS
+git config --global http.sslVerify false
+git clone https://FX36019@ybgweb.ny.ssmb.com/ybgit/scm/bdetl/yb-bigdata.git
+
+git remote add origin https://FX36019@ybgweb.ny.ssmb.com/ybgit/scm/bdetl/yb-bigdata.git
+
+git push -u origin master  
+
+create table prd.fnma_monitors(file_name String,  file_size bigint,  file_lines bigint,  as_of_date bigint, year int, month int,  start_time bigint,  process_last_seconds bigint, total_records bigint, status string)
+
+
+
+hadoop fs -ls /user/hive/warehouse/prd.db/fnmamonly/year=2018/month=04
+hadoop fs -rm /user/hive/warehouse/prd.db/fnmamonly/year=2018/month=04/*
+
+git fetch --all
+git reset --hard origin/master
+
+
+
+git reset --hard HEAD
+git pull
+
+/net/ybr-prodnfs11/embs_prod/PREV_MONTH/
+/net/ybr-prodnfs11/vendordata-PROD/data-grp15/embsdata/embs/daily/
+
+sh -x /usr/book/app/yb-bigdata/src/main/scripts/fnma/PreprocessFiles.sh FNMMONLL.ZIP
+
+Switch Java Environment in Linux box.
+Sqoop require Java 1.7 while embs application require Java 1.8
+
+Refer to https://tecadmin.net/install-java-8-on-centos-rhel-and-fedora/
+
+1. update $JAVA_HOME /etc/bashrc
+2. #alternatives --config java
+
+re-login 
+
+sqoop require encrypted password
+
+hadoop credential create uat.password.alias -provider jceks://hdfs/user/embs/uat.password.jceks
+Enter password:
+bpa123
+
+kite-dataset update dataset:hive://ybrdev79:9083/prd/fnmamonly --schema fnma_monthly.avsc
+
+
+alter table prd.monitors SET TBLPROPERTIES('serialization.null.format'='');
+
+kite-dataset partition-config --schema fnma_monthly.avsc As_of_Date:year As_of_Date:month Pool_Number:hash[5]  -o year-month-fnmamonly.json
+kite-dataset delete dataset:hive://ybrdev79:9083/prd/fnmamonly
+kite-dataset create dataset:hive://ybrdev79:9083/prd/fnmamonly --schema fnma_monthly.avsc --partition-by year-month-fnmamonly.json --format parquet
+
+

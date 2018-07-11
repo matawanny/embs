@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# must run with Java 1.7
 HOME=/usr/book
 table=fhlmc_mod_loan
 id_column=product_id
@@ -27,4 +27,4 @@ sqoop import -libjars /usr/book/jconn4.jar --verbose --connect jdbc:sybase:Tds:i
 
 # re-create the dataset in Hive
 # gets schema from data and creates all partitions
-$kite create dataset:hive:prd/$dataset --location hdfs:$location
+$kite create dataset:hive://ybrdev79:9083/prd/$dataset --location hdfs:$location

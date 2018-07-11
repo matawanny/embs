@@ -51,3 +51,16 @@ from old.fhlmc_frm_loan l
 left outer join old.fhlmc_frm_modified_loan m
 on(l.cusip_number=m.cusip_number and l.loan_sequence_number=m.loan_sequence_number
 and l.year=m.year and l.month=m.month)
+
+____________________________________________________
+
+
+create table prd.monitors(file_name string,
+file_size double,
+file_lines double, 
+as_of_date bigint, 
+year int, 
+month int, 
+start_time bigint, 
+process_time bigint,
+records double, status string);

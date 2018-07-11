@@ -4,7 +4,7 @@ HOME=/usr/book
 table=pool
 id_column=agency_pool_id
 dataset=${table}_sqoop
-location=/user/hive/warehouse/${dataset}
+location=/user/hive/warehouse/prd/${dataset}
 kite=$HOME/kite-dataset
 
 # delete the current version of the dataset
@@ -26,4 +26,5 @@ sqoop import -libjars /usr/book/jconn4.jar --verbose --connect jdbc:sybase:Tds:y
 
 # re-create the dataset in Hive
 # gets schema from data and creates all partitions
-$kite create $dataset --location hdfs:$location
+#$kite create $dataset --location hdfs:$location
+$kite create dataset:hive://ybrdev79:9083/prd/$dataset --location hdfs:$location

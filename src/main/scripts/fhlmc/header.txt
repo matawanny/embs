@@ -8,3 +8,26 @@ Loan_Identifier|Loan_Correction_Indicator|Prefix|Security_Identifier|CUSIP|Mortg
 
 Loan Identifier|Loan Correction Indicator|Prefix|Security Identifier|CUSIP|Mortgage Loan Amount|Issuance Investor Loan UPB|Current Investor Loan UPB|Amortization Type|Original Interest Rate|Issuance Interest Rate|Current Interest Rate|Issuance Net Interest Rate|Current Net Interest Rate|First Payment Date|Maturity Date|Loan Term|Remaining Months to Maturity|Loan Age|Loan-To-Value (LTV)|Combined Loan-To-Value (CLTV)|Debt-To-Income (DTI)|Borrower Credit Score|Filler|Filler|Filler|Number of Borrowers|First Time Home Buyer Indicator|Loan Purpose|Occupancy Status|Number of Units|Property Type|Channel|Property State|Seller Name|Servicer Name|Mortgage Insurance Percent|Mortgage Insurance Cancellation Indicator|Government Insured Guarantee|Assumability Indicator|Interest Only Loan Indicator|Interest Only First Principal and Interest Payment Date|Months to Amortization|Prepayment Penalty Indicator|Prepayment Penalty Total Term|Index|Mortgage Margin|MBS PC Margin|Interest Rate Adjustment Frequency|Interest Rate Lookback|Interest Rate Rounding Method|Interest Rate Rounding Method Percent|Convertibility Indicator|Initial Fixed Rate Period|Next Interest Rate Adjustment Date|Months to Next Interest Rate Adjustment Date|Life Ceiling Interest Rate|Life Ceiling Net Interest Rate|Life Floor Interest Rate|Life Floor Net Interest Rate|Initial Interest Rate Cap Up Percent|Initial Interest Rate Cap Down Percent|Periodic Interest Rate Cap Up Percent|Periodic Interest Rate Cap Down Percent|Modification Program|Modification Type|Number of Modifications|Total Capitalized Amount|Interest Bearing Mortgage Loan Amount|Original Deferred Amount|Current Deferred UPB|Loan Age As Of Modification|Estimated Loan-To-Value (ELTV)|Updated Credit Score|Filler|Interest Rate Step Indicator|Initial Step Fixed-Rate Period|Total Number of Steps|Number of Remaining Steps|Next Step Rate|Terminal Step Rate|Terminal Step Date|Step Rate Adjustment Frequency|Next Step Rate Adjustment Date|Months to Next Step Rate Adjustment Date|Periodic Step Cap Up Percent|Origination Mortgage Loan Amount|Origination Interest Rate|Origination Amortization Type|Origination Interest Only Loan Indicator|Origination First Payment Date|Origination Maturity Date|Origination Loan Term|Origination Loan-To-Value (LTV)|Origination Combined Loan-To-Value (CLTV)|Origination Debt-To-Income Ratio|Origination Credit Score|Filler|Filler|Filler|Origination Loan Purpose|Origination Occupancy Status|Origination Channel|Days Delinquent|Loan Performance History
 
+kite-dataset csv-schema FHLMONLA_20170801_LOAN.dat --record-name fhlmc_arm_loan --delimiter '|' --require PRODUCT_TYPE,LOAN_SEQUENCE_NUMBER,CUSIP_NUMBER,AS_OF_DATE -o fhlmc_arm_loan.avsc
+
+kite-dataset partition-config --schema fhlmc_arm_loan.avsc AS_OF_DATE:year AS_OF_DATE:month -o fhlmc_arm_loan_year-month.json
+kite-dataset create fhlmc_frm_loan --schema fhlmc_frm_loan.avsc --partition-by fhlmc_arm_loan_year-month.json --format parquet
+
+
+kite-dataset delete dataset:hive://ybrdev79:9083/prd/fhlmonly
+
+
+kite-dataset create dataset:hive://ybrdev79:9083/prd/fhlmonly --schema fhlmonly_new.avsc --partition-by year-month.json --format parquet
+
+sh -x /usr/book/app/yb-bigdata/src/main/scripts/fhlmc/Preprocess.sh FHLMONLA.ZIP
+sh -x /usr/book/app/yb-bigdata/src/main/scripts/fhlmc/Preprocess.sh FHLMONLF.ZIP
+
+/net/ybr-prodnfs11/embs_prod/PREV_MONTH/
+
+
+hadoop fs -ls /user/hive/warehouse/prd.db/fhlmonly/year=2018/month=04
+
+/net/ybr-prodnfs11/embs_prod/PREV_MONTH/
+/net/ybr-prodnfs11/vendordata-PROD/data-grp15/embsdata/embs/daily/
+
+kite-dataset create dataset:hive://ybrdev79:9083/prd2/fhlmc_loan --schema fhlmonly_new.avsc --partition-by year-month.json --format parquet

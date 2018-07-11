@@ -15,7 +15,6 @@
 *.dmg
 *.gz
 *.iso
-*.jar
 *.rar
 *.tar
 *.zip
@@ -53,3 +52,4 @@ Thumbs.db
 # Maven
 log/
 target/
+.myeclipse/

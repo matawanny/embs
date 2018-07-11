@@ -1,9 +1,14 @@
 [ {
   "name" : "year",
-  "source" : "as_of_date",
+  "source" : "As_of_Date",
   "type" : "year"
 }, {
   "name" : "month",
-  "source" : "as_of_date",
+  "source" : "As_of_Date",
   "type" : "month"
+}, {
+  "name" : "Pool_Number_hash",
+  "source" : "Pool_Number",
+  "type" : "hash",
+  "buckets" : 5
 } ]

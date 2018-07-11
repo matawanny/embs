@@ -7,7 +7,7 @@
     "type" : "string"
   }, {
     "name" : "Issue_Date",
-    "type" : "long" 
+    "type" : "long"
   }, {
     "name" : "Pool_Correction_Indicator",
     "type" : [ "null", "string" ],
@@ -18,12 +18,12 @@
     "type" : "long"
   }, {
     "name" : "Pool_Number",
-    "type" : "string" 
+    "type" : "string"
   }, {
     "name" : "Loan_Correction_Indicator",
     "type" : [ "null", "string" ],
     "doc" : "Type inferred from ' '",
-    "default" : nullvi 
+    "default" : null
   }, {
     "name" : "Loan_Identifier",
     "type" : "long"
@@ -268,7 +268,7 @@
     "doc" : "Type inferred from '    '",
     "default" : null
   }, {
-    "name" : "Modificaiton_Program",
+    "name" : "Modification_Program",
     "type" : [ "null", "string" ],
     "doc" : "Type inferred from '               '",
     "default" : null

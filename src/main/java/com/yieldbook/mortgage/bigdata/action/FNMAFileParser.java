@@ -17,8 +17,8 @@ public class FNMAFileParser extends BaseFileParser {
 
 	String inputFileName;
 	String outputFileName;
-	Long epochMilliSeconds;
-	Long epochMilliSecondsAsOfDate;
+	String epochMilliSecondsStr;
+	String epochMilliSecondsAsOfDateStr;
 	StringBuilder sb = new StringBuilder();
 
 	CSVWriter loanPen;
@@ -26,13 +26,10 @@ public class FNMAFileParser extends BaseFileParser {
 	public FNMAFileParser(String inputFileName, String asOfDate, String outputFileName) {
 		super();
 		this.inputFileName = inputFileName;
-		try {
-			this.epochMilliSecondsAsOfDate=YBTimeDateCurrencyUtilities
+
+			this.epochMilliSecondsAsOfDateStr=YBTimeDateCurrencyUtilities
 					.getMillionSeconds(asOfDate);
-		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}		
+	
 		this.outputFileName = outputFileName;
 		
 		try {
@@ -87,39 +84,39 @@ public class FNMAFileParser extends BaseFileParser {
 					issueDate = line[4];
 					poolCorrectionIndicate = line[5]==null?null:line[5].trim();
 					
-					epochMilliSeconds = YBTimeDateCurrencyUtilities
+					epochMilliSecondsStr = YBTimeDateCurrencyUtilities
 							.getMillionSeconds(issueDate);
 					break;
 				case LOAN_LEVEL:
 					String[] entries = new String[line.length+3];
 					entries[0] = cusip;
-					entries[1] = epochMilliSeconds + "";
+					entries[1] = epochMilliSecondsStr;
 					entries[2] = poolCorrectionIndicate;
-					entries[3] = epochMilliSecondsAsOfDate + "";
+					entries[3] = epochMilliSecondsAsOfDateStr;
 					if(!StringUtils.isEmpty(line[13].trim()))
 						line[13]=YBTimeDateCurrencyUtilities
-							.getMonthYearMillionSeconds(line[13]) + "";
+							.getMonthYearMillionSeconds(line[13]);
 					if(!StringUtils.isEmpty(line[16].trim()))
 						line[16]=YBTimeDateCurrencyUtilities
-							.getMonthYearMillionSeconds(line[16]) + "";					
+							.getMonthYearMillionSeconds(line[16]);					
 					if(!StringUtils.isEmpty(line[32].trim()))
 						line[32]=YBTimeDateCurrencyUtilities
-							.getMonthYearMillionSeconds(line[32]) + "";
+							.getMonthYearMillionSeconds(line[32]);
 					if(!StringUtils.isEmpty(line[42].trim()))
 						line[42]=YBTimeDateCurrencyUtilities
-							.getMonthYearMillionSeconds(line[42]) + "";
+							.getMonthYearMillionSeconds(line[42]);
 					if(!StringUtils.isEmpty(line[65].trim()))
-						line[32]=YBTimeDateCurrencyUtilities
-							.getMonthYearMillionSeconds(line[65]) + "";
+						line[65]=YBTimeDateCurrencyUtilities
+							.getMonthYearMillionSeconds(line[65]);
 					if(!StringUtils.isEmpty(line[68].trim()))
-						line[32]=YBTimeDateCurrencyUtilities
-							.getMonthYearMillionSeconds(line[68]) + "";
+						line[68]=YBTimeDateCurrencyUtilities
+							.getMonthYearMillionSeconds(line[68]);
 					if(!StringUtils.isEmpty(line[74].trim()))
-						line[32]=YBTimeDateCurrencyUtilities
-							.getMonthYearMillionSeconds(line[74]) + "";	
+						line[74]=YBTimeDateCurrencyUtilities
+							.getMonthYearMillionSeconds(line[74]);	
 					if(!StringUtils.isEmpty(line[75].trim()))
-						line[32]=YBTimeDateCurrencyUtilities
-							.getMonthYearMillionSeconds(line[75]) + "";						
+						line[75]=YBTimeDateCurrencyUtilities
+							.getMonthYearMillionSeconds(line[75]);						
 					System.arraycopy(line, 1, entries, 4, line.length-1);
 					loanPen.writeNext(entries);
 					break;
@@ -130,14 +127,7 @@ public class FNMAFileParser extends BaseFileParser {
 			if (loanPen!=null) loanPen.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (ParseException e1) {
-			
-			System.out
-					.println("MM/YYYY cannot parse to timestamp");
-			
-			printLine(line);
-
-		}
+		} 
 
 	}
 
