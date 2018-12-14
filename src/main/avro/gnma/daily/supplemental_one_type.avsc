@@ -1,0 +1,42 @@
+{
+	"name": "SupplementalOneType",
+	"namespace": "com.yieldbook.mortgage.domain.gnma.data",
+	"type": "record",
+	"fields": [{
+		"name": "weighted_average_credit_score",
+		"type": ["null", "int"]
+	},{
+		"name": "maximum_credit_score",
+		"type": ["null", "int"]
+	}, {
+		"name": "seventy_five_percent_credit_score",
+		"type": ["null", "int"]
+	}, {
+		"name": "median_credit_score",
+		"type": ["null", "int"]
+	}, {
+		"name": "twenty_five_percent_credit_score",
+		"type": ["null", "int"]
+	}, {
+		"name": "minimum_credit_score",
+		"type": ["null", "int"]
+	}, {
+		"name": "weighted_average_debt_income_ratio",
+		"type": ["null", "double"]
+	},{
+		"name": "maximum_debt_income_ratio",
+		"type": ["null", "double"]
+	}, {
+		"name": "seventy_five_percent_debt_income_ratio",
+		"type": ["null", "double"]
+	}, {
+		"name": "median_debt_income_ratio",
+		"type": ["null", "double"]
+	}, {
+		"name": "twenty_five_percent_debt_income_ratio",
+		"type": ["null", "double"]
+	}, {
+		"name": "minimum_debt_income_ratio",
+		"type": ["null", "double"]
+	}]
+}

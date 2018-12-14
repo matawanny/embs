@@ -1,0 +1,21 @@
+{
+	"name": "PreModificationTwoType",
+	"namespace": "com.yieldbook.mortgage.domain.gnma.data",
+	"type": "record",
+	"fields": [{
+		"name": "element_name",
+		"type": "string"
+	},  {
+		"name": "upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "percent_of_pool_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "number_of_loans",
+		"type": ["null", "int"]
+	}, {
+		"name": "percent_of_pool_loans_of_kind",
+		"type": ["null", "double"]
+	}]
+}

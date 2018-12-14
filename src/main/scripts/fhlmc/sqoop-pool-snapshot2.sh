@@ -24,5 +24,5 @@ sqoop import --connect "jdbc:sybase:Tds:icgmrt390db1u.nam.nsroot.net:20021/prd?J
 
 # re-create the dataset in Hive
 # gets schema from data and creates all partitions
-$kite create dataset:hive://ybrdev79:9083/daily/$dataset --location hdfs:$location
+$kite create dataset:hive://$HIVE:9083/daily/$dataset --location hdfs:$location
 

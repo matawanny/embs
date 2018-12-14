@@ -1,0 +1,23 @@
+{
+	"type": "record",
+	"name": "fnma_daily_pool_element",
+	"fields": [{
+		"name": "element_name",
+		"type": "string"
+	}, {
+		"name": "entity_name",
+		"type": "string"
+	}, {
+		"name": "entity_value",
+		"type": "string"
+	}, {
+		"name": "number_of_loans",
+		"type": "string"
+	}, {
+		"name": "percent_of_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "aggregate_upb",
+		"type": ["null", "double"]
+	}]
+}

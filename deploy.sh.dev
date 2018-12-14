@@ -1,0 +1,2 @@
+cp /var/lib/oozie/.m2/repository/com/yieldbook/embs/2.0.0/embs-2.0.0-shaded.jar /home2/repository/com/yieldbook/embs/2.0.0/embs-2.0.0-shaded.jar
+

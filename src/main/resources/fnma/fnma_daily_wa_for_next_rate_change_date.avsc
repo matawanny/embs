@@ -1,0 +1,17 @@
+{
+	"type": "record",
+	"name": "fnma_daily_wa_for_next_rate_change_date",
+	"fields": [{
+		"name": "wa_mbs_margin",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_net_coupon",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_net_life_caps",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_net_life_floor",
+		"type": ["null", "double"]
+	}]
+}

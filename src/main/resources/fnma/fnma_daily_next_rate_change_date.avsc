@@ -1,0 +1,41 @@
+{
+	"type": "record",
+	"name": "fnma_next_rate_change_date_daily",
+	"fields": [{
+		"name": "date",
+		"type": ["null", "int"]
+	}, {
+		"name": "percent_of_balance",
+		"type": ["null", "double"]
+	}, {
+		"name": "mbs_margin_high",
+		"type": ["null", "double"]
+	}, {
+		"name": "mbs_margin_low",
+		"type": ["null", "double"]
+	}, {
+		"name": "mbs_margin",
+		"type": ["null", "double"]
+	}, {
+		"name": "net_coupon_high",
+		"type": ["null", "double"]
+	}, {
+		"name": "net_coupon_low",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_net_coupon",
+		"type": ["null", "double"]
+	}, {
+		"name": "net_life_caps_high",
+		"type": ["null", "double"]
+	}, {
+		"name": "net_life_caps_low",
+		"type": ["null", "double"]
+	}, {
+		"name": "net_life_floor_high",
+		"type": ["null", "double"]
+	}, {
+		"name": "net_life_floor_low",
+		"type": ["null", "double"]
+	}]
+}

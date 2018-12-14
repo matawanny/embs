@@ -1,0 +1,27 @@
+{
+	"name": "StateType",
+	"namespace": "com.yieldbook.mortgage.domain.gnma.data",
+	"type": "record",
+	"fields": [{
+		"name": "state_abbreviation",
+		"type": "string"
+	}, {
+		"name": "current_security_balance_for_state",
+		"type": ["null", "double"]
+	}, {
+		"name": "balance_as_a_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "number_of_loans_for_state",
+		"type": ["null", "int"]
+	}, {
+		"name": "number_of_loans_as_a_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "total_loans",
+		"type": ["null", "int"]
+	}, {
+		"name": "original_balance_for_sate",
+		"type": ["null", "double"]
+	}]
+}

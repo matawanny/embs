@@ -27,4 +27,4 @@ sqoop import -libjars /usr/book/jconn4.jar --verbose --connect jdbc:sybase:Tds:y
 # re-create the dataset in Hive
 # gets schema from data and creates all partitions
 #$kite create $dataset --location hdfs:$location
-$kite create dataset:hive://ybrdev79:9083/prd/$dataset --location hdfs:$location
+$kite create dataset:hive://$HIVE:9083/prd/$dataset --location hdfs:$location

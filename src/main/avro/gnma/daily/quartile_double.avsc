@@ -1,0 +1,24 @@
+{
+		"name": "QuartileDouble",
+		"namespace": "com.yieldbook.mortgage.domain.gnma.data",
+		"type": "record",
+		"fields": [{
+			"name": "self_value",
+			"type": ["null", "double"]
+		},{
+			"name": "maximum",
+			"type": ["null", "double"]
+		}, {
+			"name": "seventy_five_percent",
+			"type": ["null", "double"]
+		}, {
+			"name": "median",
+			"type": ["null", "double"]
+		}, {
+			"name": "twenty_five_percent",
+			"type": ["null", "double"]
+		}, {
+			"name": "minimum",
+			"type": ["null", "double"]
+		}]
+}

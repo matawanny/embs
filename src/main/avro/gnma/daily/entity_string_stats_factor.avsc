@@ -1,0 +1,21 @@
+{
+	"name": "EntityStringStatsFactor",
+	"namespace": "com.yieldbook.mortgage.domain.gnma.data",
+	"type": "record",
+	"fields": [{
+		"name": "entity_key",
+		"type": "string"
+	},{
+		"name": "entity_value",
+		"type": ["null", "string"]
+	}, {
+		"name": "number_of_loans",
+		"type": ["null", "int"]
+	}, {
+		"name": "upb_of_loans",
+		"type": ["null", "double"]
+	}, {
+		"name": "percent_of_pool_upb",
+		"type": ["null", "double"]
+	}]
+}

@@ -1,0 +1,249 @@
+{
+	"type": "record",
+	"name": "fnma_monthly_pool_supplement",
+	"fields": [{
+			"name": "pool_number",
+			"type": "string"
+		}, {
+			"name": "pool_prefix",
+			"type": "string"
+		}, {
+			"name": "reporting_period",
+			"type": ["null", "int"]
+		}, {
+			"name": "cusip_number",
+			"type": "string"
+		}, {
+			"name": "issue_date",
+			"type": ["null", "int"]
+		}, {
+			"name": "current_upb",
+			"type": ["null", "long"]
+		}, {
+			"name": "total_active_loan_count",
+			"type": ["null", "int"]
+		}, {
+			"name": "seller_name",
+			"type": "string"
+		}, {
+			"name": "servicer_name",
+			"type": "string"
+		},
+		{
+			"name": "quartile",
+			"type": ["null", {
+				"type": "record",
+				"name": "quartile",
+				"fields": [{
+					"name": "credit_score_wa",
+					"type": ["null", "int"]
+				}, {
+					"name": "credit_score_minimum",
+					"type": ["null", "int"]
+				}, {
+					"name": "credit_score_quartile1",
+					"type": ["null", "int"]
+				}, {
+					"name": "credit_score_quartile2",
+					"type": ["null", "int"]
+				}, {
+					"name": "credit_score_quartile3",
+					"type": ["null", "int"]
+				}, {
+					"name": "credit_score_quartile4",
+					"type": ["null", "int"]
+				}, {
+					"name": "credit_score_quartile_percent_missing",
+					"type": ["null", "double"]
+				}, {
+					"name": "ltv_wa",
+					"type": ["null", "int"]
+				}, {
+					"name": "ltv_minimum",
+					"type": ["null", "int"]
+				}, {
+					"name": "ltv_quartile1",
+					"type": ["null", "int"]
+				}, {
+					"name": "ltv_quartile2",
+					"type": ["null", "int"]
+				}, {
+					"name": "ltv_quartile3",
+					"type": ["null", "int"]
+				}, {
+					"name": "ltv_quartile4",
+					"type": ["null", "int"]
+				}, {
+					"name": "ltv_percent_missing",
+					"type": ["null", "double"]
+				}, {
+					"name": "ltv_loan_count_missing",
+					"type": ["null", "long"]
+				}, {
+					"name": "one_unit_upb",
+					"type": ["null", "double"]
+				}, {
+					"name": "one_unit_percent",
+					"type": ["null", "double"]
+				}, {
+					"name": "one_unit_loan_count",
+					"type": ["null", "long"]
+				}, {
+					"name": "two__four_unit_upb",
+					"type": ["null", "double"]
+				}, {
+					"name": "tow__four_unit_percent",
+					"type": ["null", "double"]
+				}, {
+					"name": "two__four_unit_loan_count",
+					"type": ["null", "long"]
+				}, {
+					"name": "purchase_upb",
+					"type": ["null", "double"]
+				}, {
+					"name": "purchase_percent",
+					"type": ["null", "double"]
+				}, {
+					"name": "purchase_loan_count",
+					"type": ["null", "long"]
+				}, {
+					"name": "refinance_upb",
+					"type": ["null", "double"]
+				}, {
+					"name": "refinance_percent",
+					"type": ["null", "double"]
+				}, {
+					"name": "refinance_loan_count",
+					"type": ["null", "long"]
+				}, {
+					"name": "principal_upb",
+					"type": ["null", "double"]
+				}, {
+					"name": "principal_percent",
+					"type": ["null", "double"]
+				}, {
+					"name": "principal_loan_count",
+					"type": ["null", "long"]
+				}, {
+					"name": "second_upb",
+					"type": ["null", "double"]
+				}, {
+					"name": "second_percent",
+					"type": ["null", "double"]
+				}, {
+					"name": "second_loan_count",
+					"type": ["null", "long"]
+				}, {
+					"name": "investment_upb",
+					"type": ["null", "double"]
+				}, {
+					"name": "investment_percent",
+					"type": ["null", "double"]
+				}, {
+					"name": "investment_loan_count",
+					"type": ["null", "long"]
+				}]
+			}],
+			"default": null
+		}, {
+			"name": "servicers",
+			"type": ["null", {
+				"type": "array",
+				"items": {
+					"type": "record",
+					"name": "servicer",
+					"fields": [{
+						"name": "servicer_name",
+						"type": "string"
+					}, {
+						"name": "servicer_upb",
+						"type": ["null", "double"]
+					}, {
+						"name": "servicer_percent",
+						"type": ["null", "double"]
+					}, {
+						"name": "loan_count",
+						"type": ["null", "int"]
+					}]
+				}
+			}],
+			"default": null
+		}, {
+			"name": "third_party_origination_type",
+			"type": ["null", {
+					"type": "record",
+					"name": "third_party_origination_type",
+					"fields": [{
+						"name": "third_party_origination_upb_percent",
+						"type": ["null", "double"]
+					}, {
+						"name": "broker_loan_count",
+						"type": ["null", "int"]
+					}, {
+						"name": "broker_upb",
+						"type": ["null", "double"]
+					}, {
+						"name": "broker_upb_percent",
+						"type": ["null", "double"]
+					}, {
+						"name": "correspondent_loan_count",
+						"type": ["null", "int"]
+					}, {
+						"name": "correspondent_upb",
+						"type": ["null", "double"]
+					}, {
+						"name": "correspondent_upb_percent",
+						"type": ["null", "double"]
+					}, {
+						"name": "retail_loan_count",
+						"type": ["null", "int"]
+					}, {
+						"name": "retail_upb",
+						"type": ["null", "double"]
+					}, {
+						"name": "retail_upb_percent",
+						"type": ["null", "double"]
+					}]
+			}],
+			"default": null
+		}, {
+			"name": "interest_only",
+			"type": ["null", {
+					"type": "record",
+					"name": "interest_only",
+					"fields": [{
+						"name": "wa_months_to_amortization",
+						"type": ["null", "int"]
+					}, {
+						"name": "number_of_loans_per_pool",
+						"type": ["null", "int"]
+					}, {
+						"name": "pool_prefix",
+						"type": "string"
+					}, {
+						"name": "cusip",
+						"type": "string"
+					}, {
+						"name": "remaining_months_to_amortization",
+						"type": ["null", "int"]
+					}, {
+						"name": "number_of_loans_per_pool_per_remaining_months_to_amortization",
+						"type": ["null", "int"]
+					}, {
+						"name": "upb_percent",
+						"type": ["null", "double"]
+					}, {
+						"name": "comment",
+						"type": "string"
+					}]
+			}],
+			"default": null
+		}, {
+			"name": "last_chg_date",
+			"type": "int"
+		}, {
+			"name": "as_of_date",
+			"type": "int"
+		}
+	]
+}

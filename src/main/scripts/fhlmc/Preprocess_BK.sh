@@ -12,14 +12,14 @@ filename=$1
 
 #ext=$(echo $filename|cut -f 2 -d '.')
 ext=${filename##*.}
-if [ "$ext" == "ZIP" ]
+if [ "$ext" = "ZIP" ]
 then
-   unzip $filename
+   unzip -o $filename
    filename=$(echo $filename|cut -f 1 -d '.')
    filename+=".TXT"
 fi
 
-if [ "$ext" == "Z" ]
+if [ "$ext" = "Z" ]
 then
    gunzip $filename
    filename=$(echo $filename|cut -f 1 -d '.')
@@ -28,12 +28,12 @@ fi
 
 echo $filename
 FILELINES=$(wc -l $filename | awk  '{print $1;}')
-dos2unix $filename
+#dos2unix $filename
 
 name=$(echo $filename|cut -f 1 -d '.'|cut -f 2 -d '_')
 prefix=$(echo $filename|cut -f 1 -d '.'|cut -f 1 -d '_')
 
-if [ "$name" == "$prefix" ]
+if [ "$name" = "$prefix" ]
 then
         sigName=$(echo $filename|cut -f 1 -d '.')
         sigName+=".SIG"
@@ -52,7 +52,7 @@ then
 else
         asOfDate=$(($name+5))
         day=$asOfDate
-        if [ "$prefix" == "FHLMONLA" ]
+        if [ "$prefix" = "FHLMONLA" ]
         then
                 asOfDate+=" 17:04"
         else
@@ -70,7 +70,7 @@ newFileName+="_TS.dat"
 echo $newFileName
 echo "remove header if it has"
 firstWord=$(head -n  1 $filename|cut -f 1 -d '|')
-if [ "$firstWord" == "Loan Identifier" ]
+if [ "$firstWord" = "Loan Identifier" ]
 then
    sed -i 1d $filename
 fi

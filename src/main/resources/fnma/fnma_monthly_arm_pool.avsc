@@ -1,0 +1,240 @@
+{
+	"type": "record",
+	"name": "fnma_monthly_arm_pool",
+	"fields": [{
+		"name": "cusip_number",
+		"type": "string"
+	}, {
+		"name": "pool_issue_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "pool_maturity_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "lender_issuer",
+		"type": "string"
+	}, {
+		"name": "lender_city",
+		"type": "string"
+	}, {
+		"name": "state",
+		"type": "string"
+	}, {
+		"name": "subtype",
+		"type": "string"
+	}, {
+		"name": "transfer_type",
+		"type": "string"
+	}, {
+		"name": "pass_through_rate_structure",
+		"type": "string"
+	}, {
+		"name": "convertible_flag",
+		"type": "string"
+	}, {
+		"name": "deferred_interest_allowed",
+		"type": "string"
+	}, {
+		"name": "original_security_balance",
+		"type": "string"
+	}, {
+		"name": "original_number_of_loans",
+		"type": "string"
+	}, {
+		"name": "original_wa_coupon",
+		"type": "string"
+	}, {
+		"name": "original_wa_maturity",
+		"type": "string"
+	}, {
+		"name": "first_rate_change_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "first_payment_change_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "issue_accrual_rate",
+		"type": ["null", "double"]
+	}, {
+		"name": "security_balance_mlnm",
+		"type": ["null", "int"]
+	}, {
+		"name": "security_balance_year",
+		"type": ["null", "int"]
+	}, {
+		"name": "security_balance_month",
+		"type": ["null", "int"]
+	}, {
+		"name": "current_security_balance",
+		"type": "string"
+	}, {
+		"name": "current_trading_factor",
+		"type": ["null", "double"]
+	}, {
+		"name": "current_wa_coupon",
+		"type": ["null", "double"]
+	}, {
+		"name": "current_wa_maturity",
+		"type": "string"
+	}, {
+		"name": "current_deferred_interest",
+		"type": ["null", "double"]
+	}, {
+		"name": "return_deferred_interest",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_months_to_rate_change",
+		"type": "string"
+	}, {
+		"name": "wa_mbs_margin",
+		"type": "string"
+	}, {
+		"name": "wa_lpt_life_cap",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_lpt_life_life",
+		"type": "string"
+	}, {
+		"name": "wa_loan_margin",
+		"type": "string"
+	}, {
+		"name": "wa_negative_amortization_limit",
+		"type": ["null", "double"]
+	}, {
+		"name": "published_pass_through_rate",
+		"type": ["null", "double"]
+	}, {
+		"name": "rate_difference_flag",
+		"type": "string"
+	}, {
+		"name": "accrual_rate",
+		"type": "string"
+	}, {
+		"name": "lookback_rate_change",
+		"type": "string"
+	}, {
+		"name": "lookback_payment_change",
+		"type": "string"
+	}, {
+		"name": "per_adjustment_rate_cap",
+		"type": "string"
+	}, {
+		"name": "rate_adjustment_frequency",
+		"type": "string"
+	}, {
+		"name": "payment_change_frequency",
+		"type": "string"
+	}, {
+		"name": "amortization_recast_frequency",
+		"type": ["null", "int"]
+	}, {
+		"name": "accrual_rate_rounding_method_code",
+		"type": "string"
+	}, {
+		"name": "payment_cap",
+		"type": "string"
+	}, {
+		"name": "minimum_index_movement",
+		"type": "string"
+	}, {
+		"name": "maximum_accrual_rate",
+		"type": "string"
+	}, {
+		"name": "minimum_accrual_rate",
+		"type": "string"
+	}, {
+		"name": "next_rate_change_dates",
+		"type": ["null", {
+			"type": "array",
+			"items": {
+				"type": "record",
+				"name": "fnma_next_rate_change_date_monthly",
+				"fields": [{
+					"name": "next_rate_change_date",
+					"type": ["null", "int"]
+				}, {
+					"name": "original_note_rate",
+					"type": ["null", "double"]
+				}, {
+					"name": "percent_security_balance",
+					"type": ["null", "double"]
+				}, {
+					"name": "mbs_margin_high",
+					"type": "string"
+				}, {
+					"name": "mbs_margin_low",
+					"type": "string"
+				}, {
+					"name": "pass_through_rate_cap_high",
+					"type": ["null", "double"]
+				}, {
+					"name": "pass_through_rate_cap_low",
+					"type": ["null", "double"]
+				}, {
+					"name": "pass_through_rate_floor_high",
+					"type": "string"
+				}, {
+					"name": "pass_through_rate_floor_low",
+					"type": "string"
+				}, {
+					"name": "pass_through_rate_high",
+					"type": ["null", "double"]
+				}, {
+					"name": "pass_through_rate_low",
+					"type": ["null", "double"]
+				}, {
+					"name": "cross_coupon_high",
+					"type": ["null", "double"]
+				}, {
+					"name": "cross_coupon_low",
+					"type": ["null", "double"]
+				}, {
+					"name": "wa_mbs_margin",
+					"type": "string"
+				}, {
+					"name": "wa_pass_through_rate",
+					"type": ["null", "double"]
+				}, {
+					"name": "wa_coupon",
+					"type": ["null", "double"]
+				}, {
+					"name": "note_rate_cap",
+					"type": ["null", "double"]
+				}, {
+					"name": "loan_count",
+					"type": ["null", "string"]
+				}]
+			}
+		}],
+		"default": null
+	}, {
+		"name": "first_payment_dates",
+		"type": ["null", {
+			"type": "array",
+			"items": {
+				"type": "record",
+				"name": "first_payment_date",
+				"fields": [{
+					"name": "first_payment_date",
+					"type": ["null", "int"]
+				}, {
+					"name": "original_note_rate",
+					"type": ["null", "double"]
+				}, {
+					"name": "percent_security_balance",
+					"type": ["null", "double"]
+				}, {
+					"name": "loan_survival_ratio",
+					"type": ["null", "double"]
+				}]
+			}
+		}],
+		"default": null
+	}, {
+		"name": "last_chg_date",
+		"type": "int"
+	}, {
+		"name": "as_of_date",
+		"type": "int"
+	}]
+}

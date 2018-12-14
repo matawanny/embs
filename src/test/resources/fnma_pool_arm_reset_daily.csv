@@ -1,0 +1,28 @@
+Record Type,X(1),1,1
+Filler,X(1),2,1
+Pool Number,9(6),3,6
+Filler,X(1),9,1
+Next Rate Chg Date,X(8),10,8
+Filler,X(1),18,1
+Pct Balance,9(3),19,3
+Filler,X(1),22,1
+MBS Margin High,9(4).9(4),23,9
+Filler,X(1),32,1
+MBS Margin Low,9(4).9(4),33,9
+Filler,X(1),42,1
+Wtd Avg MBS Margin,9(4).9(4),43,9
+Filler,X(1),52,1
+Accrual Net Coupon High,9(3).9(4),53,8
+Filler,X(1),61,1
+Accrual Net Coupon Low,9(3).9(4),62,8
+Filler,X(1),70,1
+Wtd Avg Net Coupon,9(3).9(4),71,8
+Filler,X(1),79,1
+Net Life Cap High,9(3).9(4),80,8
+Filler,X(1),88,1
+Net Life Cap Low,9(3).9(4),89,8
+Filler,X(1),97,1
+Net Life Floor High,9(3).9(4),98,8
+Filler,X(1),106,1
+Net Life Floor Low,9(3).9(4),107,8
+Filler,X(24),115,24

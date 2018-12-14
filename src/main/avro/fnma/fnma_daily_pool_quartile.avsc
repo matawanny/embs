@@ -1,0 +1,29 @@
+{
+	"type": "record",
+	"name": "fnma_daily_pool_quartile",
+	"fields": [{
+		"name": "quartile_level",
+		"type": "string"
+	}, {
+		"name": "loan_size",
+		"type": ["null", "double"]
+	}, {
+		"name": "coupon",
+		"type": ["null", "double"]
+	}, {
+		"name": "ltv",
+		"type": ["null", "double"]
+	}, {
+		"name": "credit_score",
+		"type": ["null", "double"]
+	}, {
+		"name": "loan_term",
+		"type": "string"
+	}, {
+		"name": "loan_age",
+		"type": ["null", "int"]
+	}, {
+		"name": "remaining_maturity",
+		"type": ["null", "int"]
+	}]
+}

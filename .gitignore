@@ -53,3 +53,8 @@ Thumbs.db
 log/
 target/
 .myeclipse/
+./src/main/resources/core-site.xml
+./src/main/resources/hive-site.xml
+./deploy.sh
+./src/main/resources/config.properties
+

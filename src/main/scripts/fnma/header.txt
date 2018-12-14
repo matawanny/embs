@@ -15,13 +15,13 @@ kite-dataset csv-schema FNMMONLL.TXT --record-name fnma_month_loan --delimiter '
 
 
 
-kite-dataset create dataset:hive://ybrdev79:9083/prd/fnmamonly --schema fnma_monthly.avsc --partition-by year-month-fnmamonly.json --format parquet
+kite-dataset create dataset:hive://$HIVE:9083/prd/fnmamonly --schema fnma_monthly.avsc --partition-by year-month-fnmamonly.json --format parquet
 
-kite-dataset info dataset:hive://ybrdev79:9083/prd/fnmamonly
+kite-dataset info dataset:hive://$HIVE:9083/prd/fnmamonly
 
-kite-dataset csv-import FNMMONLL.TXT dataset:hive://ybrdev79:9083/prd/fnmamonly --delimiter '|' --no-header
+kite-dataset csv-import FNMMONLL.TXT dataset:hive://$HIVE:9083/prd/fnmamonly --delimiter '|' --no-header
 
-kite-dataset delete dataset:hive://ybrdev79:9083/prd/fnmamonly
+kite-dataset delete dataset:hive://$HIVE:9083/prd/fnmamonly
 
 unset SSH_ASKPASS
 git config --global http.sslVerify false
@@ -67,13 +67,44 @@ hadoop credential create uat.password.alias -provider jceks://hdfs/user/embs/uat
 Enter password:
 bpa123
 
-kite-dataset update dataset:hive://ybrdev79:9083/prd/fnmamonly --schema fnma_monthly.avsc
+kite-dataset update dataset:hive://$HIVE:9083/prd/fnmamonly --schema fnma_monthly.avsc
 
 
 alter table prd.monitors SET TBLPROPERTIES('serialization.null.format'='');
 
 kite-dataset partition-config --schema fnma_monthly.avsc As_of_Date:year As_of_Date:month Pool_Number:hash[5]  -o year-month-fnmamonly.json
-kite-dataset delete dataset:hive://ybrdev79:9083/prd/fnmamonly
-kite-dataset create dataset:hive://ybrdev79:9083/prd/fnmamonly --schema fnma_monthly.avsc --partition-by year-month-fnmamonly.json --format parquet
+
+sed -i 's/999999I/{{{{{{{/g' FNMARM.TXT
+
+sed -i 's/9I/99/g' FNMARM.TXT
+sed -i 's/0A/00/g' FNMARM.TXT
+
+1. Set Hive shell variable(hiveconf)
+hive>set year=2012;
+hive>select * from table9 where col4=${hiveconf:year}
+hive>set year;
+hive>set table=table9
+hive>select * from ${hiveconf:table} wher col4=${hiveconf:year}
+
+variable cannot visiable in another hive shell session
+
+2 Using variables in bash sheel
+hive --hiveconf year=2013 -e 'select * from table9 where col4=${hiveconf:year};'
+
+hadoop fs -cat test1.hql
+select * from table9 wheer col4=${hiveconf:year};
+hive --hiveconf year=2012 -f hdfs://localhost:9000/user/jivesh/test1.sh
+
+3. Similar like hiveconf, we can set hivevar
+
+hive>set hivevar:table=table9;
+hive>set table
+hive>select * from ${hivevar:table};
+
+hive --hivewar table=table9 -f hdfs:/user/oozie/test4.sql
+
+
+
+
 
 

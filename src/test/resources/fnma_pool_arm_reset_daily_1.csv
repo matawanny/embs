@@ -1,0 +1,13 @@
+pool_number, string
+next_rate_chg_date, int
+pct_balance, double
+mbs_margin_high, double
+mbs_margin_low, double
+wtd_avg_mbs_margin, double
+accrual_net_coupon_high, double
+accrual_net_coupon_low, double
+wtd_avg_net_coupon, string
+net_life_cap_high, double
+net_life_cap_low, double
+net_life_floor_high, double
+net_life_floor_low, double

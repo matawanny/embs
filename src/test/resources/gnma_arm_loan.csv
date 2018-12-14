@@ -1,0 +1,14 @@
+2,cusip,char
+10,loan_seq_num,int
+46,index_type,char
+47,lookback,smallint
+48,interest_chg_date,smalldatetime
+49,init_rate_cap,float
+50,sub_init_rate_cap,float
+51,life_time_rate_cap,float
+52,next_interest_rate_ceiling,float
+53,life_time_rate_ceiling,float
+54,life_time_rate_floor,float
+55,prospect_interest_rate,float
+,last_chg_date,datetime
+36,eff_date,smalldatetime

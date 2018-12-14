@@ -1,0 +1,47 @@
+<beanio xmlns="http://www.beanio.org/2012/03" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.beanio.org/2012/03 http://www.beanio.org/2012/03/mapping.xsd">
+
+  <stream name="employeeFile" format="csv">
+    <record name="employee" class="com.yieldbook.beanio.Employee">
+      <field name="firstName" />
+      <field name="lastName" />
+      <field name="title" />
+      <field name="salary" />
+      <field name="hireDate" format="MMddyyyy" />
+    </record>
+  </stream>
+  
+   <stream name="employeeSegmentFile" format="csv">
+    <record name="employee" class="com.yieldbook.beanio.segment.Employee">
+      <field name="firstName" />
+      <field name="lastName" />
+      <field name="title" />
+      <field name="salary" />
+      <field name="hireDate" format="MMddyyyy" />
+      <segment name="mailingAddress" class="com.yieldbook.beanio.segment.Address">
+        <field name="street" />
+        <field name="city" />
+        <field name="state" />      
+        <field name="zip" />
+      </segment>
+    </record> 
+  </stream> 
+  
+   <stream name="employeeRepeatingFile" format="csv">
+    <record name="employee" class="com.yieldbook.beanio.segment.repeating.Employee">
+      <field name="firstName" />
+      <field name="lastName" />
+      <field name="title" />
+      <field name="salary" />
+      <field name="hireDate" format="MMddyyyy" />
+      <segment name="addressList" collection="list" minOccurs="1" maxOccurs="unbounded" class="com.yieldbook.beanio.segment.repeating.Address">
+        <field name="street" />
+        <field name="city" />
+        <field name="state" />      
+        <field name="zip" />
+      </segment>
+    </record> 
+  </stream>  
+  
+</beanio>

@@ -1,0 +1,15 @@
+cusip, String, 1
+loan_seq_num, int, 0
+index_type, String, 37
+lookback, int, 38
+interest_chg_date, int, 39
+init_rate_cap, double, 40
+sub_init_rate_cap, double, 41
+life_time_rate_cap, double, 42
+next_interest_rate_ceiling, double, 43
+life_time_rate_ceiling, double, 44
+life_time_rate_floor, double, 45
+prospect_interest_rate, double, 46
+last_Chg_Date, int, 999
+eff_date, int, 34
+as_of_date, int, 999

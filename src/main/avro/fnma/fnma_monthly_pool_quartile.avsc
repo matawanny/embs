@@ -1,0 +1,113 @@
+{
+	"type": "record",
+	"name": "fnma_monthly_pool_quartile",
+	"fields": [{
+		"name": "credit_score_wa",
+		"type": ["null", "int"]
+	}, {
+		"name": "credit_score_minimum",
+		"type": ["null", "int"]
+	}, {
+		"name": "credit_score_quartile1",
+		"type": ["null", "int"]
+	}, {
+		"name": "credit_score_quartile2",
+		"type": ["null", "int"]
+	}, {
+		"name": "credit_score_quartile3",
+		"type": ["null", "int"]
+	}, {
+		"name": "credit_score_quartile4",
+		"type": ["null", "int"]
+	}, {
+		"name": "credit_score_quartile_percent_missing",
+		"type": ["null", "double"]
+	}, {
+		"name": "ltv_wa",
+		"type": ["null", "int"]
+	}, {
+		"name": "ltv_minimum",
+		"type": ["null", "int"]
+	}, {
+		"name": "ltv_quartile1",
+		"type": ["null", "int"]
+	}, {
+		"name": "ltv_quartile2",
+		"type": ["null", "int"]
+	}, {
+		"name": "ltv_quartile3",
+		"type": ["null", "int"]
+	}, {
+		"name": "ltv_quartile4",
+		"type": ["null", "int"]
+	}, {
+		"name": "ltv_percent_missing",
+		"type": ["null", "double"]
+	}, {
+		"name": "ltv_loan_count_missing",
+		"type": ["null", "long"]
+	}, {
+		"name": "one_unit_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "one_unit_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "one_unit_loan_count",
+		"type": ["null", "long"]
+	}, {
+		"name": "two__four_unit_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "tow__four_unit_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "two__four_unit_loan_count",
+		"type": ["null", "long"]
+	}, {
+		"name": "purchase_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "purchase_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "purchase_loan_count",
+		"type": ["null", "long"]
+	}, {
+		"name": "refinance_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "refinance_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "refinance_loan_count",
+		"type": ["null", "long"]
+	}, {
+		"name": "principal_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "principal_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "principal_loan_count",
+		"type": ["null", "long"]
+	}, {
+		"name": "second_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "second_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "second_loan_count",
+		"type": ["null", "long"]
+	}, {
+		"name": "investment_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "investment_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "investment_loan_count",
+		"type": ["null", "long"]
+	}]
+}

@@ -1,0 +1,62 @@
+{
+	"type": "record",
+	"name": "fnma_monthly_pool_multifamily_factor",
+	"fields": [{
+		"name": "cur_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "cusip",
+		"type": "string"
+	}, {
+		"name": "prefix",
+		"type": "string"
+	}, {
+		"name": "transaction_id",
+		"type": "string"
+	}, {
+		"name": "security_description",
+		"type": "string"
+	}, {
+		"name": "issue_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "maturity_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "issuance_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "security_upb_current",
+		"type": ["null", "double"]
+	}, {
+		"name": "current_factor",
+		"type": ["null", "double"]
+	}, {
+		"name": "paying_ptr_current",
+		"type": ["null", "double"]
+	}, {
+		"name": "prepayment_allocation",
+		"type": ["null", "double"]
+	}, {
+		"name": "prepayment_factor",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_accruing_note_rate_issurance",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_remaining_term_issurance",
+		"type": ["null", "int"]
+	}, {
+		"name": "wa_accruing_note_rate_current",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_remaining_term_current",
+		"type": ["null", "int"]
+	}, {
+		"name": "last_chg_date",
+		"type": "int"
+	}, {
+		"name": "as_of_date",
+		"type": "int"
+	}]
+}

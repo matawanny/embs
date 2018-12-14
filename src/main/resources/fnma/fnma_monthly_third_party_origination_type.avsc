@@ -1,0 +1,35 @@
+{
+	"type": "record",
+	"name": "fnma_monthly_third_party_origination_type",
+	"fields": [{
+		"name": "third_party_origination_upb_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "broker_loan_count",
+		"type": ["null", "int"]
+	}, {
+		"name": "broker_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "broker_upb_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "correspondent_loan_count",
+		"type": ["null", "int"]
+	}, {
+		"name": "correspondent_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "correspondent_upb_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "retail_loan_count",
+		"type": ["null", "int"]
+	}, {
+		"name": "retail_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "retail_upb_percent",
+		"type": ["null", "double"]
+	}]
+}

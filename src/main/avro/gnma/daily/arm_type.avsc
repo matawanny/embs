@@ -1,0 +1,48 @@
+{
+	"name": "ArmType",
+	"namespace": "com.yieldbook.mortgage.domain.gnma.data",
+	"type": "record",
+	"fields": [{
+		"name": "look_back_period",
+		"type": ["null", "int"]
+	}, {
+		"name": "index_type",
+		"type": "string"
+	}, {
+		"name": "next_adjustment_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "prior_adjustment_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "months_to_adjust",
+		"type": ["null", "int"]
+	}, {
+		"name": "weighted_average_mortgage_margin",
+		"type": ["null", "double"]
+	}, {
+		"name": "maximum_mortgage_margin",
+		"type": ["null", "double"]
+	}, {
+		"name": "minimum_mortgage_margin",
+		"type": ["null", "double"]
+	}, {
+		"name": "initial_interest_rate_cap",
+		"type": ["null", "int"]
+	}, {
+		"name": "subsequent_interest_rate_cap",
+		"type": ["null", "int"]
+	}, {
+		"name": "lifetime_interest_rate_cap",
+		"type": ["null", "int"]
+	}, {
+		"name": "lifetime_interest_rate_ceiling",
+		"type": ["null", "double"]
+	}, {
+		"name": "next_interest_rate_ceiling",
+		"type": ["null", "double"]
+	}, {
+		"name": "lifetime_interest_rate_floor",
+		"type": ["null", "double"]
+	}]
+}

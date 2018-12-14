@@ -15,18 +15,23 @@ then
     exit;
 fi	
 
+if [ -z "$BASE" ]
+then
+  source $OOZIE_HOME/SetupEnv.sh
+fi
+
 FILESIZE=$(stat -c%s "$SOURCE_FILENAME")
 filename=$1
 
 ext=${filename##*.}
-if [ "$ext" == "ZIP" ]
+if [ "$ext" = "ZIP" ]
 then
-   unzip $filename
+   unzip -o $filename
    filename=$(echo $filename|cut -f 1 -d '.')  
    filename+=".TXT"
 fi
 
-if [ "$ext" == "Z" ]
+if [ "$ext" = "Z" ]
 then
    gunzip $filename
    filename=$(echo $filename|cut -f 1 -d '.')
@@ -35,12 +40,12 @@ fi
 
 echo $filename
 FILELINES=$(wc -l $filename | awk  '{print $1;}') 
-dos2unix $filename
+#dos2unix $filename
 
 name=$(echo $filename|cut -f 1 -d '.'|cut -f 2 -d '_')
 prefix=$(echo $filename|cut -f 1 -d '.'|cut -f 1 -d '_')
 
-if [ "$name" == "$prefix" ]
+if [ "$name" = "$prefix" ]
 then
 	sigName=$(echo $filename|cut -f 1 -d '.')
 	sigName+=".SIG"
@@ -65,7 +70,7 @@ else
 	asOfDate=$(($name+5))
 	asOfDate1=$(($name+5))
 	day=$asOfDate
-	if [ "$prefix" == "FHLMONLA" ]
+	if [ "$prefix" = "FHLMONLA" ]
 	then
         	asOfDate+=" 17:04:00"
         	asOfDate1+="17:04:00"
@@ -85,7 +90,7 @@ newFileName+="_TS.dat"
 echo $newFileName
 echo "remove header if it has"
 firstWord=$(head -n  1 $filename|cut -f 1 -d '|')
-if [ "$firstWord" == "Loan Identifier" ]
+if [ "$firstWord" = "Loan Identifier" ]
 then
    sed -i 1d $filename
 fi
@@ -96,15 +101,14 @@ then
 	rm -rf $newFileName
 fi
 
-libfile=/usr/book/repository/com/yieldbook/embs/0.0.1-SNAPSHOT/embs-0.0.1-SNAPSHOT-shaded.jar
 sed -i 's/ *| */|/g' $filename
 
-java -Xms1024m -Xmx2048m -jar $libfile -t fhlmc -i $filename -o $newFileName -d $asOfDate1
+java -Xms1024m -Xmx2048m -jar $BIGDATA_JAR -t fhlmc_loan -i $filename -o $newFileName -d $asOfDate1
 
 #awk  -F"|" '{print $0FS var}'var="$timeSec" $filename >> $newFileName 
 #sed  "s/$/\|$timeSec/g" $filename >>$newFileName
 
-kite-dataset csv-import $newFileName dataset:hive://ybrdev79:9083/prd/fhlmonly --delimiter '|' --no-header
+kite-dataset csv-import $newFileName dataset:hive://$HIVE:9083/prd/fhlmonly --delimiter '|' --no-header
 year=${day:0:4}
 month=${day:4:2}
 #impala-shell -B -i ybgdev93.ny.ssmb.com -q "invalidate metadata;use prd;select count(*) from fhlmonly where year=$year and month=$month" > /tmp/count.tsv

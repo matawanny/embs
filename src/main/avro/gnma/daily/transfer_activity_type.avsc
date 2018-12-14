@@ -1,0 +1,21 @@
+{
+	"name": "TransferActivityType",
+	"namespace": "com.yieldbook.mortgage.domain.gnma.data",
+	"type": "record",
+	"fields": [{
+		"name": "transfer_type",
+		"type": ["null", "int"]
+	}, {
+		"name": "selling_issuer_number",
+		"type": ["null", "int"]
+	}, {
+		"name": "buying_issuer_number",
+		"type": ["null", "int"]
+	}, {
+		"name": "number_of_loans_transferred",
+		"type": ["null", "int"]
+	}, {
+		"name": "upb_of_loan_transferred",
+		"type": ["null", "double"]
+	}]
+}

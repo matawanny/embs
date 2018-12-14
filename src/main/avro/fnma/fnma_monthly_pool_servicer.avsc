@@ -1,0 +1,17 @@
+{
+	"type": "record",
+	"name": "fnma_monthly_pool_servicer",
+	"fields": [{
+		"name": "servicer_name",
+		"type": "string"
+	}, {
+		"name": "servicer_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "servicer_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "loan_count",
+		"type": ["null", "int"]
+	}]
+}

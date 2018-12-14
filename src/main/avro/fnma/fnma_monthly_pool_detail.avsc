@@ -1,0 +1,83 @@
+{
+	"type": "record",
+	"name": "fnma_monthly_pool_detail",
+	"fields": [{
+		"name": "cusip",
+		"type": "string"
+	}, {
+		"name": "pool_prefix",
+		"type": "string"
+	}, {
+		"name": "pool_number",
+		"type": "string"
+	}, {
+		"name": "pool_type",
+		"type": "string"
+	}, {
+		"name": "original_balance",
+		"type": ["null", "double"]
+	}, {
+		"name": "cur_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "current_balance",
+		"type": ["null", "double"]
+	}, {
+		"name": "current_factor",
+		"type": ["null", "double"]
+	}, {
+		"name": "pass_through_rate",
+		"type": ["null", "double"]
+	}, {
+		"name": "issue_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "maturity_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "original_wa_maturity",
+		"type": ["null", "int"]
+	}, {
+		"name": "seller_name",
+		"type": "string"
+	}, {
+		"name": "seller_street",
+		"type": "string"
+	}, {
+		"name": "seller_city",
+		"type": "string"
+	}, {
+		"name": "seller_state",
+		"type": "string"
+	}, {
+		"name": "seller_zip",
+		"type": "string"
+	}, {
+		"name": "original_wa_coupon",
+		"type": ["null", "double"]
+	}, {
+		"name": "sd_security_type",
+		"type": "string"
+	}, {
+		"name": "sd_interest_rate",
+		"type": ["null", "double"]
+	}, {
+		"name": "sd_pool_prefix",
+		"type": "string"
+	}, {
+		"name": "sd_pool_number",
+		"type": "string"
+	}, {
+		"name": "current_wa_coupon",
+		"type": ["null", "double"]
+	}, {
+		"name": "current_wa_maturity",
+		"type": ["null", "int"]
+	}, {
+		"name": "last_chg_date",
+		"type": "int"
+	}, {
+		"name": "as_of_date",
+		"type": "int"
+	}]
+}

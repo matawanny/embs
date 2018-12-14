@@ -1,0 +1,247 @@
+{
+	"type": "record",
+	"name": "fnma_pool_supplement_daily",
+	"fields": [{
+		"name": "pool_number",
+		"type": "string"
+	}, {
+		"name": "cusip",
+		"type": "string"
+	}, {
+		"name": "issue_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "security_description",
+		"type": "string"
+	}, {
+		"name": "issue_amount",
+		"type": ["null", "double"]
+	}, {
+		"name": "pass_through_rate",
+		"type": ["null", "double"]
+	}, {
+		"name": "initial_accrual_rate",
+		"type": ["null", "double"]
+	}, {
+		"name": "first_pi_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "seller",
+		"type": "string"
+	}, {
+		"name": "servicer",
+		"type": "string"
+	}, {
+		"name": "number_of_loans",
+		"type": ["null", "int"]
+	}, {
+		"name": "average_loan_size",
+		"type": ["null", "double"]
+	}, {
+		"name": "maturity_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "initial_interest_rate_change_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "wa_months_to_roll",
+		"type": ["null", "int"]
+	}, {
+		"name": "sub_type",
+		"type": "string"
+	}, {
+		"name": "convertible",
+		"type": "string"
+	}, {
+		"name": "transfer_type",
+		"type": "string"
+	}, {
+		"name": "pass_through_method",
+		"type": "string"
+	}, {
+		"name": "wa_coupon",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_max_pool_accrual_rate",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_min_pool_accrual_rate",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_loan_age",
+		"type": ["null", "int"]
+	}, {
+		"name": "wa_loan_term",
+		"type": "string"
+	}, {
+		"name": "wa_remaining_maturity_at_issuance",
+		"type": "string"
+	}, {
+		"name": "wa_ltv",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_credit_score",
+		"type": ["null", "int"]
+	}, {
+		"name": "percent_upb_without_credit_score",
+		"type": ["null", "double"]
+	}, {
+		"name": "percent_upb_with_interest_only",
+		"type": ["null", "double"]
+	}, {
+		"name": "percent_upb_with_fully_amortizing",
+		"type": ["null", "double"]
+	}, {
+		"name": "prefix",
+		"type": "string"
+	}, {
+		"name": "first_payment_change_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "percent_upb_with_third_party_origination",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_combined_loan_to_value_ratio",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_original_loan_size",
+		"type": ["null", "double"]
+	}, {
+		"name": "quartiles",
+		"type": ["null", {
+			"type": "array",
+			"items": {
+				"type": "record",
+				"name": "quartile",
+				"fields": [{
+					"name": "quartile_level",
+					"type": "string"
+				}, {
+					"name": "loan_size",
+					"type": ["null", "double"]
+				}, {
+					"name": "coupon",
+					"type": ["null", "double"]
+				}, {
+					"name": "ltv",
+					"type": ["null", "double"]
+				}, {
+					"name": "credit_score",
+					"type": ["null", "double"]
+				}, {
+					"name": "loan_term",
+					"type": "string"
+				}, {
+					"name": "loan_age",
+					"type": ["null", "int"]
+				}, {
+					"name": "remaining_maturity",
+					"type": ["null", "int"]
+				}]
+			}
+		}],
+		"default": null
+	}, {
+		"name": "elements",
+		"type": ["null", {
+			"type": "array",
+			"items": {
+				"type": "record",
+				"name": "element",
+				"fields": [{
+					"name": "element_name",
+					"type": "string"
+				}, {
+					"name": "entity_name",
+					"type": "string"
+				}, {
+					"name": "entity_value",
+					"type": "string"
+				}, {
+					"name": "number_of_loans",
+					"type": "string"
+				}, {
+					"name": "percent_of_upb",
+					"type": ["null", "double"]
+				}, {
+					"name": "aggregate_upb",
+					"type": ["null", "double"]
+				}]
+			}
+		}],
+		"default": null
+	}, {
+		"name": "next_rate_change_dates",
+		"type": ["null", {
+			"type": "array",
+			"items": {
+				"type": "record",
+				"name": "next_rate_change_date",
+				"fields": [{
+					"name": "date",
+					"type": ["null", "int"]
+				}, {
+					"name": "percent_of_balance",
+					"type": ["null", "double"]
+				}, {
+					"name": "mbs_margin_high",
+					"type": ["null", "double"]
+				}, {
+					"name": "mbs_margin_low",
+					"type": ["null", "double"]
+				}, {
+					"name": "mbs_margin",
+					"type": ["null", "double"]
+				}, {
+					"name": "net_coupon_high",
+					"type": ["null", "double"]
+				}, {
+					"name": "net_coupon_low",
+					"type": ["null", "double"]
+				}, {
+					"name": "wa_net_coupon",
+					"type": ["null", "double"]
+				}, {
+					"name": "net_life_caps_high",
+					"type": ["null", "double"]
+				}, {
+					"name": "net_life_caps_low",
+					"type": ["null", "double"]
+				}, {
+					"name": "net_life_floor_high",
+					"type": ["null", "double"]
+				}, {
+					"name": "net_life_floor_low",
+					"type": ["null", "double"]
+				}]
+			}
+		}],
+		"default": null
+	}, {
+		"name": "wa_for_next_rate_change_dates",
+		"type": ["null", {
+			"type": "array",
+			"items": {
+				"type": "record",
+				"name": "wa_for_next_rate_change_date",
+				"fields": [{
+					"name": "wa_mbs_margin",
+					"type": ["null", "double"]
+				}, {
+					"name": "wa_net_coupon",
+					"type": ["null", "double"]
+				}, {
+					"name": "wa_net_life_caps",
+					"type": ["null", "double"]
+				}, {
+					"name": "wa_net_life_floor",
+					"type": ["null", "double"]
+				}]
+			}
+		}],
+		"default": null
+	}, {
+		"name": "as_of_date",
+		"type": "int"
+	}]
+}

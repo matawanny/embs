@@ -4,14 +4,14 @@ SOURCE_FILENAME=$1
 if [ -z "$SOURCE_FILENAME" ]
 then
       echo "Must input source file name!"
-      exit;
+      exit 10
 fi
 
 currentUser=$(whoami)
 if [ "$currentUser" != "oozie" ]
 then
     echo "Must login in as oozie"
-    exit;
+    exit 11
 fi	
 
 FILESIZE=$(stat -c%s "$SOURCE_FILENAME")
@@ -24,7 +24,7 @@ sigName+=".SIG"
 if [ ! -f $sigName ]
     then
 	echo "missing SIG file $sigName" 
-	exit;
+	exit 12
 fi
 
 day=$(cat $sigName|awk '{print $1}')
@@ -45,10 +45,8 @@ AS_OF_DATE=$timeSec
 
 if [ "$ext" == "ZIP" ]
 then
-   unzip $filename
+   unzip -o $filename
 fi
-
-libfile=/usr/book/repository/com/yieldbook/embs/0.0.1-SNAPSHOT/embs-0.0.1-SNAPSHOT.jar
 
 newFileName=$(echo $filename|awk -F. '{print $1}')
 newFIleName+=$timeSec
@@ -68,9 +66,9 @@ for zf in $FILES ; do
 	echo "$zf"
 	let FILELINES=${FILELINES}+$(wc -l $zf | awk  '{print $1;}')
 	echo $FILELINES
-	dos2unix $zf
+	#dos2unix $zf
 	sed -i 's/ *| */|/g' $zf
-    java -Xms1024m -Xmx2048m -jar $libfile -t fnma -i $zf -o $newFileName -d $asOfDate
+    java -Xms1024m -Xmx2048m -jar $BIGDATA_JAR -t fnma_loan -i $zf -o $newFileName -d $asOfDate
     #break
 done
 echo $FILELINES
@@ -80,7 +78,7 @@ let COUNT_LOAN=0
 if [[ -s $newFileName ]] 
 then
 	echo "$newFileName has data."
-        kite-dataset csv-import $newFileName dataset:hive://ybrdev79:9083/prd/fnmamonly --delimiter '|' --no-header
+        kite-dataset csv-import $newFileName dataset:hive://$HIVE:9083/prd/fnmamonly --delimiter '|' --no-header
 
 else
         echo "$newFileName is empty"
@@ -93,7 +91,7 @@ DIFF=$(echo "$END - $START" | bc)
 echo "SOURCE_FILENAME=$SOURCE_FILENAME  FILESIZE=$FILESIZE      FILELINES=$FILELINES    START=$START    DIFF=$DIFF      AS_OF_DATE=$timeSec"
 echo "YEAR=$year        MONTH=$month    COUNT=$COUNT"
 
-COUNT=$(impala-shell -B -i ybrdev79.ny.ssmb.com -q "invalidate metadata;select count(*) from prd.fnmamonly where as_of_date=$timeSec")
+COUNT=$(impala-shell -B -i $HIVE.ny.ssmb.com -q "invalidate metadata;select count(*) from prd.fnmamonly where as_of_date=$timeSec")
 if [ -z "$COUNT" ]
 then COUNT=NULL
 fi
@@ -102,6 +100,6 @@ END=$(date +%s)
 DIFF=$(echo "$END - $START" | bc)
 echo "SOURCE_FILENAME=$SOURCE_FILENAME	FILESIZE=$FILESIZE	FILELINES=$FILELINES	START=$START	DIFF=$DIFF	AS_OF_DATE=$timeSec"
 echo "YEAR=$year	MONTH=$month	COUNT=$COUNT"
-impala-shell -B -i ybrdev79.ny.ssmb.com -q "invalidate metadata; insert into prd.fnma_monitors values ('$SOURCE_FILENAME',$FILESIZE,$FILELINES,$timeSec,$year,$month,$START,$DIFF,$COUNT,'SUCCESS')"
+impala-shell -B -i $HIVE.ny.ssmb.com -q "invalidate metadata; insert into prd.fnma_monitors values ('$SOURCE_FILENAME',$FILESIZE,$FILELINES,$timeSec,$year,$month,$START,$DIFF,$COUNT,'SUCCESS')"
 
 # rm -rf *.dat

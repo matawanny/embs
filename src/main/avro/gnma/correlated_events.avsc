@@ -1,0 +1,21 @@
+{
+  "name": "CorrelatedEvents",
+  "namespace": "com.yieldbook.kitesdk.examples.data",
+  "type": "record",
+  "doc": "An event along with a list of events correlated with the first event",
+  "fields": [
+    {
+      "name": "event",
+      "type": "com.yieldbook.kitesdk.examples.data.StandardEvent",
+      "doc": "The events the other events are correlated with"
+    },
+    {
+      "name": "correlated",
+      "type": {"type": "array", "items": "com.yieldbook.kitesdk.examples.data.StandardEvent"},
+      "doc": "The list of correlated events"
+    },{
+			"name": "as_of_date",
+			"type": "int"
+	}
+  ]
+}

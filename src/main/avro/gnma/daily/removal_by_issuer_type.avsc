@@ -1,0 +1,63 @@
+{
+	"name": "RemovalByIssuerType",
+	"namespace": "com.yieldbook.mortgage.domain.gnma.data",
+	"type": "record",
+	"fields": [{
+		"name": "issuer",
+		"type": ["null", "int"]
+	}, {
+		"name": "mortgagor_payoff_number_of_loans",
+		"type": ["null", "int"]
+	}, {
+		"name": "mortgagor_payoff_upb_of_loans",
+		"type": ["null", "double"]
+	}, {
+		"name": "mortgagor_payoff_percent_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "repurchase_delinquent_number_of_loans",
+		"type": ["null", "int"]
+	}, {
+		"name": "repurchase_delinquent_upb_of_loans",
+		"type": ["null", "double"]
+	}, {
+		"name": "repurchase_delinquent_percent_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "foreclosure_with_claim_payment_number_of_loans",
+		"type": ["null", "int"]
+	}, {
+		"name": "foreclosure_with_claim_payment_upb_of_loans",
+		"type": ["null", "double"]
+	}, {
+		"name": "foreclosure_with_claim_payment_percent_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "repurchase_loss_mitigation_number_of_loans",
+		"type": ["null", "int"]
+	}, {
+		"name": "repurchase_loss_mitigation_upb_of_loans",
+		"type": ["null", "double"]
+	}, {
+		"name": "repurchase_loss_mitigation_percent_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "substitution_number_of_loans",
+		"type": ["null", "int"]
+	}, {
+		"name": "substitution_upb_of_loans",
+		"type": ["null", "double"]
+	}, {
+		"name": "substitution_percent_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "other_removal_number_of_loans",
+		"type": ["null", "int"]
+	}, {
+		"name": "other_removal_upb_of_loans",
+		"type": ["null", "double"]
+	}, {
+		"name": "other_removal_percent_upb",
+		"type": ["null", "double"]
+	}]
+}

@@ -14,10 +14,10 @@ kite-dataset partition-config --schema fhlmc_arm_loan.avsc AS_OF_DATE:year AS_OF
 kite-dataset create fhlmc_frm_loan --schema fhlmc_frm_loan.avsc --partition-by fhlmc_arm_loan_year-month.json --format parquet
 
 
-kite-dataset delete dataset:hive://ybrdev79:9083/prd/fhlmonly
+kite-dataset delete dataset:hive://$HIVE:9083/prd/fhlmonly
 
 
-kite-dataset create dataset:hive://ybrdev79:9083/prd/fhlmonly --schema fhlmonly_new.avsc --partition-by year-month.json --format parquet
+kite-dataset create dataset:hive://$HIVE:9083/prd/fhlmonly --schema fhlmonly_new.avsc --partition-by year-month.json --format parquet
 
 sh -x /usr/book/app/yb-bigdata/src/main/scripts/fhlmc/Preprocess.sh FHLMONLA.ZIP
 sh -x /usr/book/app/yb-bigdata/src/main/scripts/fhlmc/Preprocess.sh FHLMONLF.ZIP
@@ -30,4 +30,11 @@ hadoop fs -ls /user/hive/warehouse/prd.db/fhlmonly/year=2018/month=04
 /net/ybr-prodnfs11/embs_prod/PREV_MONTH/
 /net/ybr-prodnfs11/vendordata-PROD/data-grp15/embsdata/embs/daily/
 
-kite-dataset create dataset:hive://ybrdev79:9083/prd2/fhlmc_loan --schema fhlmonly_new.avsc --partition-by year-month.json --format parquet
+kite-dataset create dataset:hive://$HIVE:9083/prd2/fhlmc_embs_monthly --schema fhlmc_embs_monthly.avsc --partition-by year-month.json --format parquet
+
+cd /etc/httpd
+ls -ltr logs
+mkdir ../../var/log/httpd
+service httpd start
+cd /var/www/html
+ln -s /usr/book/export export

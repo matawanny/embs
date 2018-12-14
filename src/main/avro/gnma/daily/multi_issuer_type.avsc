@@ -1,0 +1,21 @@
+{
+	"name": "MultiIssuerType",
+	"namespace": "com.yieldbook.mortgage.domain.gnma.data",
+	"type": "record",
+	"fields": [{
+		"name": "issuer_number",
+		"type": "string"
+	}, {
+		"name": "issuer_name",
+		"type": "string"
+	}, {
+		"name": "number_of_loans",
+		"type": ["null", "int"]
+	}, {
+		"name": "issuer_upb_in_multiple_issuer_pool",
+		"type": ["null", "double"]
+	}, {
+		"name": "issuer_percent_of_multiple_issuer_pool",
+		"type": ["null", "double"]
+	}]
+}

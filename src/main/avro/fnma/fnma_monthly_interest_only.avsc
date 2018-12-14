@@ -1,0 +1,29 @@
+{
+	"type": "record",
+	"name": "fnma_monthly_interest_only",
+	"fields": [{
+		"name": "wa_months_to_amortization",
+		"type": ["null", "int"]
+	}, {
+		"name": "number_of_loans_per_pool",
+		"type": ["null", "int"]
+	}, {
+		"name": "pool_prefix",
+		"type": "string"
+	}, {
+		"name": "cusip",
+		"type": "string"
+	}, {
+		"name": "remaining_months_to_amortization",
+		"type": ["null", "int"]
+	}, {
+		"name": "number_of_loans_per_pool_per_remaining_months_to_amortization",
+		"type": ["null", "int"]
+	}, {
+		"name": "upb_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "comment",
+		"type": "string"
+	}]
+}

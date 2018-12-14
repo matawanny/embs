@@ -10,7 +10,7 @@ kite=$HOME/kite-dataset
 
 num_jobs=`sqoop job --list | grep $job_name | wc -l`
 
-if [[ $num_jobs == 0 ]]; then
+if [ "$num_jobs" -eq 0 ]; then
 
   echo
   echo "Creating temporary dataset: $temp_table"

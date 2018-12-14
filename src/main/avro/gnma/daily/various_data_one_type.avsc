@@ -1,0 +1,24 @@
+{
+	"name": "VariousDataOneType",
+	"namespace": "com.yieldbook.mortgage.domain.gnma.data",
+	"type": "record",
+	"fields": [{
+		"name": "element_name",
+		"type": "string"
+	},  {
+		"name": "pool_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "percent_of_pool_upb",
+		"type": ["null", "double"]
+	}, {
+		"name": "number_of_loans",
+		"type": ["null", "int"]
+	}, {
+		"name": "number_of_loans_percent",
+		"type": ["null", "double"]
+	}, {
+		"name": "original_loan_balance",
+		"type": ["null", "double"]
+	}]
+}

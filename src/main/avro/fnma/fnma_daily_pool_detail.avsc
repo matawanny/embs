@@ -1,0 +1,110 @@
+{
+	"type": "record",
+	"name": "fnma_daily_pool_detail",
+	"fields": [{
+			"name": "pool_number",
+			"type": "string"
+		}, {
+			"name": "prefix",
+			"type": "string"
+		}, {
+			"name": "cusip_number",
+			"type": "string"
+		}, {
+			"name": "issue_date",
+			"type": ["null", "int"]
+		}, {
+			"name": "pass_thru_rate",
+			"type": ["null", "double"]
+		}, {
+			"name": "original_wac",
+			"type": ["null", "double"]
+		}, {
+			"name": "original_wam",
+			"type": ["null", "double"]
+		}, {
+			"name": "maturity_date",
+			"type": ["null", "int"]
+		}, {
+			"name": "original_balance",
+			"type": ["null", "double"]
+		}, {
+			"name": "smp_percent",
+			"type": ["null", "double"]
+		}, {
+			"name": "margin",
+			"type": ["null", "double"]
+		}, {
+			"name": "subtype",
+			"type": ["null", "string"]
+		}, {
+			"name": "transfer_type",
+			"type": ["null", "string"]
+		}, {
+			"name": "first_rate_chg_date",
+			"type": ["null", "int"]
+		}, {
+			"name": "first_paymt_chg_date",
+			"type": ["null", "int"]
+		}, {
+			"name": "orig_net_life_cap",
+			"type": ["null", "double"]
+		}, {
+			"name": "orig_net_life_floor",
+			"type": ["null", "double"]
+		}, {
+			"name": "months_to_next_rt_chg",
+			"type": ["null", "int"]
+		}, {
+			"name": "as_of_date",
+			"type": "int"
+		}, {
+			"name": "arm_resets",
+			"type": ["null", {
+				"type": "array",
+				"items": {
+					"type": "record",
+					"name": "fnma_reset",
+					"fields": [{
+						"name": "next_rate_chg_date",
+						"type": ["null", "int"]
+					}, {
+						"name": "pct_balance",
+						"type": ["null", "double"]
+					}, {
+						"name": "mbs_margin_high",
+						"type": ["null", "double"]
+					}, {
+						"name": "mbs_margin_low",
+						"type": ["null", "double"]
+					}, {
+						"name": "wtd_avg_mbs_margin",
+						"type": ["null", "double"]
+					}, {
+						"name": "accrual_net_coupon_high",
+						"type": ["null", "double"]
+					}, {
+						"name": "accrual_net_coupon_low",
+						"type": ["null", "double"]
+					}, {
+						"name": "wtd_avg_net_coupon",
+						"type": ["null", "double"]
+					}, {
+						"name": "net_life_cap_high",
+						"type": ["null", "double"]
+					}, {
+						"name": "net_life_cap_low",
+						"type": ["null", "double"]
+					}, {
+						"name": "net_life_floor_high",
+						"type": ["null", "double"]
+					}, {
+						"name": "net_life_floor_low",
+						"type": ["null", "double"]
+					}]
+				}
+			}],
+			"default": null
+		}
+	]
+}

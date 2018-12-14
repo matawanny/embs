@@ -1,0 +1,210 @@
+<beanio xmlns="http://www.beanio.org/2012/03" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.beanio.org/2012/03 http://www.beanio.org/2012/03/mapping.xsd">
+
+  <typeHandler type="java.util.Date" class="org.beanio.types.DateTypeHandler">
+    <property name="pattern" value="MM/dd/yyyy" />
+    <property name="lenient" value="true" />
+  </typeHandler>
+  
+  <stream name="fnmaPoolSupplementDaily" format="delimited">
+  	<parser>
+      <property name="delimiter" value="|" />
+    </parser>
+    <group name="poolSupplements" class="com.yieldbook.mortgage.domain.fnma.PoolDailySupplement" minOccurs="0" maxOccurs="unbounded">
+      <record name="poolStatistics" order="1" minOccurs="1">
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="01" ignore="true" />
+		<field name="cusip" />
+		<field name="issueDate" />
+		<field name="securityDescription" />
+		<field name="issueAmount" />
+		<field name="passThroughRate" />
+		<field name="initialAccrualRate" />
+		<field name="firstPIDate" />
+		<field name="seller" />
+		<field name="servicer" />
+		<field name="numberOfLoans" />
+		<field name="averageLoanSize" />
+		<field name="maturityDate" />
+		<field name="initialInterestRateChangeDate" />
+		<field name="waMonthsToRoll" />
+		<field name="subType" />
+		<field name="convertible" />
+		<field name="transferType" />
+		<field name="passThroughMethod" />
+		<field name="waCoupon" />
+		<field name="waMaxPoolAccrualRate" />
+		<field name="waMinPoolAccrualRate" />
+		<field name="waLoanAge" />
+		<field name="waLoanTerm" />
+		<field name="waRemainingMaturityAtIssuance" />
+		<field name="waLTV" />
+		<field name="waCreditScore" />
+		<field name="percentUPBWithoutCreditScore" />
+		<field name="percentUPBWithInterestOnly" />
+		<field name="percentUPBWithFullyAmortizing" />
+		<field name="prefix" />
+		<field name="firstPaymentChangeDate" />
+		<field name="percentUPBWithThirdPartyOrigination" />
+		<field name="waCombinedLoanToValueRatio" />
+		<field name="waOriginalLoanSize" />
+      </record>
+      <record name="quartiles" class="com.yieldbook.mortgage.domain.fnma.PoolDailyQuartile" collection="list" order="2" minOccurs="0" maxOccurs="unbounded">
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="02" ignore="true" />		
+		<field name="quartileLevel" />
+		<field name="loanSize" />
+		<field name="coupon" />
+		<field name="ltv" />
+		<field name="creditScore" />
+		<field name="loanTerm" />
+		<field name="loanAge" />
+		<field name="remainingMaturity" />
+      </record>
+      <record name="elements" class="com.yieldbook.mortgage.domain.fnma.PoolDailyElement" collection="list" order="3" minOccurs="0" maxOccurs="unbounded">
+      	<property name="elementName" value="loan_purpose" />
+      	<property name="entityName" value="type" />
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="03" ignore="true" />		
+		<field name="entityValue" />
+		<field name="numberOfLoans" />
+		<field name="percentOfUPB" />
+		<field name="aggregateUPB" />
+      </record>
+      <record name="elements" class="com.yieldbook.mortgage.domain.fnma.PoolDailyElement" collection="list" order="4" minOccurs="0" maxOccurs="unbounded">
+      	<property name="elementName" value="property_type" />
+      	<property name="entityName" value="numberOfUnits" />
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="04" ignore="true" />		
+		<field name="entityValue" />
+		<field name="numberOfLoans" />
+		<field name="percentOfUPB" />
+		<field name="aggregateUPB" />
+      </record>
+      <record name="elements" class="com.yieldbook.mortgage.domain.fnma.PoolDailyElement" collection="list" order="5" minOccurs="0" maxOccurs="unbounded">
+      	<property name="elementName" value="occupancy_type" />
+      	<property name="entityName" value="type" /> 
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="05" ignore="true" />		
+		<field name="entityValue" />
+		<field name="numberOfLoans" />
+		<field name="percentOfUPB" />
+		<field name="aggregateUPB" />
+      </record>
+      <record name="elements" class="com.yieldbook.mortgage.domain.fnma.PoolDailyElement" collection="list" order="6" minOccurs="0" maxOccurs="unbounded">
+      	<property name="elementName" value="non_standard_loans" />
+      	<property name="entityName" value="type" />
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="06" ignore="true" />		
+		<field name="entityValue" />
+		<field name="numberOfLoans" />
+		<field name="percentOfUPB" />
+		<field name="aggregateUPB" />
+      </record>
+      <record name="elements" class="com.yieldbook.mortgage.domain.fnma.PoolDailyElement" collection="list" order="7" minOccurs="0" maxOccurs="unbounded">
+      	<property name="elementName" value="first_schduled_amortization" />
+      	<property name="entityName" value="date" />
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="07" ignore="true" />		
+		<field name="entityValue" />
+		<field name="numberOfLoans" />
+		<field name="percentOfUPB" />
+		<field name="aggregateUPB" />
+      </record>
+      <record name="elements" class="com.yieldbook.mortgage.domain.fnma.PoolDailyElement" collection="list" order="8" minOccurs="0" maxOccurs="unbounded">
+      	<property name="elementName" value="origination_year" />
+      	<property name="entityName" value="year" />
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="08" ignore="true" />		
+		<field name="entityValue" />
+		<field name="numberOfLoans" />
+		<field name="percentOfUPB" />
+		<field name="aggregateUPB" />
+      </record>
+      <record name="elements" class="com.yieldbook.mortgage.domain.fnma.PoolDailyElement" collection="list" order="9" minOccurs="0" maxOccurs="unbounded">
+      	<property name="elementName" value="geographic_distribution" />
+      	<property name="entityName" value="state" />
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="09" ignore="true" />		
+		<field name="entityValue" />
+		<field name="numberOfLoans" />
+		<field name="percentOfUPB" />
+		<field name="aggregateUPB" />
+      </record>
+      <record name="elements" class="com.yieldbook.mortgage.domain.fnma.PoolDailyElement" collection="list" order="10" minOccurs="0" maxOccurs="unbounded">
+      	<property name="elementName" value="servicer" />
+      	<property name="entityName" value="servicer_name" />
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="10" ignore="true" />		
+		<field name="entityValue" />
+		<field name="numberOfLoans" />
+		<field name="percentOfUPB" />
+		<field name="aggregateUPB" />
+      </record>
+      <record name="elements" class="com.yieldbook.mortgage.domain.fnma.PoolDailyElement" collection="list" order="11" minOccurs="0" maxOccurs="unbounded">
+      	<property name="elementName" value="distribution_of_loans_by_first_payment_date" />
+      	<property name="entityName" value="date" />
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="11" ignore="true" />		
+		<field name="entityValue" />
+		<field name="numberOfLoans" />
+		<field name="percentOfUPB" />
+		<field name="aggregateUPB" />
+      </record>
+      <record name="elements" class="com.yieldbook.mortgage.domain.fnma.PoolDailyElement" collection="list" order="12" minOccurs="0" maxOccurs="unbounded">
+      	<property name="elementName" value="current_interest_rate" />
+      	<property name="entityName" value="current_mortgage_interest_rate" />
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="12" ignore="true" />		
+		<field name="entityValue" />
+		<field name="numberOfLoans" />
+		<field name="aggregateUPB" />
+      </record>
+      <record name="elements" class="com.yieldbook.mortgage.domain.fnma.PoolDailyElement" collection="list" order="13" minOccurs="0" maxOccurs="unbounded">
+      	<property name="elementName" value="gross_margin" />
+      	<property name="entityName" value="gross_margin" />
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="13" ignore="true" />		
+		<field name="entityValue" />
+		<field name="numberOfLoans" />
+		<field name="aggregateUPB" />
+      </record>      
+      <record name="nextRateChangeDates" class="com.yieldbook.mortgage.domain.fnma.NextRateChangeDateDaily" collection="list" order="14" minOccurs="0" maxOccurs="unbounded">
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="14" ignore="true" />		
+		<field name="date" />
+		<field name="percentOfBalance" />
+		<field name="mbsMarginHigh" />
+		<field name="mbsMarginLow" />
+		<field name="mbsMargin" />
+		<field name="netCouponHigh" />
+		<field name="netCouponLow" />
+		<field name="waNetCoupon" />
+		<field name="netLifeCapsHigh" />	
+		<field name="netLifeCapsLow" />
+		<field name="netLifeFloorHigh" />
+		<field name="netLifeFloorLow" />													
+      </record>      
+      <record name="waForNextRateChangeDates" class="com.yieldbook.mortgage.domain.fnma.WaForNextRateChangeDateDaily" collection="list" order="15" minOccurs="0" maxOccurs="unbounded">
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="15" ignore="true" />		
+		<field name="waMBSMargin" />
+		<field name="waNetCoupon" />
+		<field name="waNetLifeCaps" />
+		<field name="waNetLifeFloor" />
+      </record>             
+      <record name="elements" class="com.yieldbook.mortgage.domain.fnma.PoolDailyElement" collection="list" order="17" minOccurs="0" maxOccurs="unbounded">
+      	<property name="elementName" value="origination_type" />
+      	<property name="entityName" value="origination_type" />
+      	<field name="poolNumber" />
+        <field name="recordType" rid="true" literal="17" ignore="true" />		
+		<field name="entityValue" />
+		<field name="numberOfLoans" />
+		<field name="percentOfUPB" />
+		<field name="aggregateUPB" />
+      </record>                                                           
+    </group>
+  </stream>
+    
+</beanio>

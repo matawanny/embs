@@ -1,0 +1,166 @@
+	{
+		"namespace": "com.yieldbook.mortgage.domain.gnma.data",
+		"type": "record",
+		"name": "GnmaDailyPoolDetail",
+		"fields": [{
+			"name": "cusip",
+			"type": "string"
+		}, {
+			"name": "pool_number",
+			"type": "string"
+		}, {
+			"name": "pool_indicator",
+			"type": "string"
+		}, {
+			"name": "pool_type",
+			"type":  "string"
+		},{
+			"name": "security_interest_rate",
+			"type": ["null", "double"]
+		}, {
+			"name": "pool_issue_date",
+			"type": ["null", "int"]
+		}, {
+			"name": "pool_maturity_date",
+			"type": ["null", "int"]
+		}, {
+			"name": "original_aggregate_amount",
+			"type": ["null", "double"]
+		}, {
+			"name": "issue_number",
+			"type": ["null", "int"]
+		}, {
+			"name": "issue_name",
+			"type":  "string"
+		}, {
+			"name": "security_margin",
+			"type": ["null", "double"]
+		}, {
+			"name": "interest_adjustment_date",
+			"type": ["null", "int"]
+		}, {
+			"name": "payment_adjustment_date",
+			"type": ["null", "int"]
+		}, {
+			"name": "number_of_loans_in_pool",
+			"type": ["null", "int"]
+		}, {
+			"name": "aols",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.QuartileDouble"]
+		}, {
+			"name": "wac",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.QuartileDouble"]
+		}, {
+			"name": "warm",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.QuartileInt"]
+		}, {
+			"name": "wala",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.QuartileInt"]
+		}, {
+			"name": "waolt",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.QuartileInt"]
+		}, {
+			"name": "wagm",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.QuartileDouble"]
+		}, {
+			"name": "ltv",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.QuartileWaOrigInt"]
+		}, {
+			"name": "ltv_not_available",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.StatsFactor"]
+		}, {
+			"name": "purchase",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.StatsFactor"]
+		}, {
+			"name": "refinance",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.StatsFactor"]
+		}, {
+			"name": "hamp_modified",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.StatsFactor"]
+		}, {
+			"name": "non_hamp_modified",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.StatsFactor"]
+		}, {
+			"name": "loan_purpose_not_available",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.StatsFactor"]
+		}, {
+			"name": "cltv",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.QuartileWaOrigInt"]
+		}, {
+			"name": "weighted_average_original_loan_size",
+			"type": ["null", "double"]
+		}, {
+			"name": "look_back_period",
+			"type": ["null", "int"]
+		}, {
+			"name": "one_unit",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.StatsFactor"]
+		}, {
+			"name": "one_to_four_unit",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.StatsFactor"]
+		}, {
+			"name": "property_type_not_available",
+			"type": ["null", "com.yieldbook.mortgage.domain.gnma.data.StatsFactor"]
+		}, {
+			"name": "pool_upb",
+			"type": ["null", "double"]
+		}, {
+			"name": "origination_years",
+			"type": ["null", {"type": "array","items": "com.yieldbook.mortgage.domain.gnma.data.EntityStringStatsFactor"}],
+			"default": null
+		},  {
+			"name": "pre_modification_one",
+			"type": ["null","com.yieldbook.mortgage.domain.gnma.data.PreModificationOneType"],
+			"default": null
+		}, {
+			"name": "pre_modification_two",
+			"type": ["null", {"type": "array","items": "com.yieldbook.mortgage.domain.gnma.data.PreModificationTwoType"}],
+			"default": null
+		}, {
+			"name": "multi_issusers",
+			"type": ["null", {"type": "array","items": "com.yieldbook.mortgage.domain.gnma.data.MultiIssuerType"}],
+			"default": null
+		}, {
+			"name": "states",
+			"type": ["null", {"type": "array","items": "com.yieldbook.mortgage.domain.gnma.data.StateType"}],
+			"default": null
+		}, {
+			"name": "various_data_one",
+			"type": ["null", {"type": "array","items": "com.yieldbook.mortgage.domain.gnma.data.VariousDataOneType"}],
+			"default": null
+		}, {
+			"name": "various_data_two",
+			"type": ["null", {"type": "array","items": "com.yieldbook.mortgage.domain.gnma.data.StatsFactorSimple"}],
+			"default": null
+		}, {
+			"name": "supplemental_one",
+			"type": ["null","com.yieldbook.mortgage.domain.gnma.data.SupplementalOneType"]
+		}, {
+			"name": "supplemental_two",
+			"type": ["null", {"type": "array","items": "com.yieldbook.mortgage.domain.gnma.data.StatsFactorSimple"}],
+			"default": null
+		}, {
+			"name": "removals_by_issuer",
+			"type": ["null", {"type": "array","items": "com.yieldbook.mortgage.domain.gnma.data.RemovalByIssuerType"}],
+			"default": null
+		}, {
+	      "name": "insurance_premium_and_other_data",
+	      "type": ["null", {"type": "array", "items": "com.yieldbook.mortgage.domain.gnma.data.EntityStatsFactor"}],
+	      "default": null
+	    }, {
+	      "name": "msa",
+	      "type": ["null", {"type": "array", "items": "com.yieldbook.mortgage.domain.gnma.data.EntityStatsFactor"}],
+	      "default": null
+	    }, {
+			"name": "transfer_activity",
+			"type": ["null","com.yieldbook.mortgage.domain.gnma.data.TransferActivityType"],
+			"default": null
+		}, {
+			"name": "arm",
+			"type": ["null","com.yieldbook.mortgage.domain.gnma.data.ArmType"],
+			"default": null
+		}, {
+			"name": "as_of_date",
+			"type": "int"
+		}]
+	}

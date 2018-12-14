@@ -30,4 +30,4 @@ sqoop import -libjars /usr/book/jconn4.jar,/usr/book/jTDS3.jar,/usr/book/cryptoj
 
 # re-create the dataset in Hive
 # gets schema from data and creates all partitions
-$kite create dataset:hive://ybrdev79:9083/prd/$dataset --location hdfs:$location
+$kite create dataset:hive://$HIVE:9083/prd/$dataset --location hdfs:$location

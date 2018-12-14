@@ -1,0 +1,59 @@
+{
+	"type": "record",
+	"name": "fnma_monthly_next_rate_change_date",
+	"fields": [{
+		"name": "next_rate_change_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "original_note_rate",
+		"type": ["null", "double"]
+	}, {
+		"name": "percent_security_balance",
+		"type": ["null", "double"]
+	}, {
+		"name": "mbs_margin_high",
+		"type": "string"
+	}, {
+		"name": "mbs_margin_low",
+		"type": "string"
+	}, {
+		"name": "pass_through_rate_cap_high",
+		"type": ["null", "double"]
+	}, {
+		"name": "pass_through_rate_cap_low",
+		"type": ["null", "double"]
+	}, {
+		"name": "pass_through_rate_floor_high",
+		"type": "string"
+	}, {
+		"name": "pass_through_rate_floor_low",
+		"type": "string"
+	}, {
+		"name": "pass_through_rate_high",
+		"type": ["null", "double"]
+	}, {
+		"name": "pass_through_rate_low",
+		"type": ["null", "double"]
+	}, {
+		"name": "cross_coupon_high",
+		"type": ["null", "double"]
+	}, {
+		"name": "cross_coupon_low",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_mbs_margin",
+		"type": "string"
+	}, {
+		"name": "wa_pass_through_rate",
+		"type": ["null", "double"]
+	}, {
+		"name": "wa_coupon",
+		"type": ["null", "double"]
+	}, {
+		"name": "note_rate_cap",
+		"type": ["null", "double"]
+	}, {
+		"name": "loan_count",
+		"type": ["null", "string"]
+	}]
+}

@@ -1,0 +1,41 @@
+{
+	"type": "record",
+	"name": "fnma_daily_reset",
+	"fields": [{
+		"name": "next_rate_chg_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "pct_balance",
+		"type": ["null", "double"]
+	}, {
+		"name": "mbs_margin_high",
+		"type": ["null", "double"]
+	}, {
+		"name": "mbs_margin_low",
+		"type": ["null", "double"]
+	}, {
+		"name": "wtd_avg_mbs_margin",
+		"type": ["null", "double"]
+	}, {
+		"name": "accrual_net_coupon_high",
+		"type": ["null", "double"]
+	}, {
+		"name": "accrual_net_coupon_low",
+		"type": ["null", "double"]
+	}, {
+		"name": "wtd_avg_net_coupon",
+		"type": "string"
+	}, {
+		"name": "net_life_cap_high",
+		"type": ["null", "double"]
+	}, {
+		"name": "net_life_cap_low",
+		"type": ["null", "double"]
+	}, {
+		"name": "net_life_floor_high",
+		"type": ["null", "double"]
+	}, {
+		"name": "net_life_floor_low",
+		"type": "string"
+	}]
+}

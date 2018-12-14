@@ -1,0 +1,17 @@
+{
+	"type": "record",
+	"name": "fnma_monthly_first_payment_date",
+	"fields": [{
+		"name": "first_payment_date",
+		"type": ["null", "int"]
+	}, {
+		"name": "original_note_rate",
+		"type": ["null", "double"]
+	}, {
+		"name": "percent_security_balance",
+		"type": ["null", "double"]
+	}, {
+		"name": "loan_survival_ratio",
+		"type": ["null", "double"]
+	}]
+}
